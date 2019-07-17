@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!--  Its important to use the internal name of the font, not the filename  -->
+    <!--  Roboto  -->
+    <FontFamily x:Key="RobotoRegular">pack://application:,,,/Fonts/Roboto/#Roboto Regular</FontFamily>
+    <FontFamily x:Key="RobotoLight">pack://application:,,,/Fonts/Roboto/#Roboto Light</FontFamily>
+    <FontFamily x:Key="RobotoBlack">pack://application:,,,/Fonts/Roboto/#Roboto Black</FontFamily>
+    <FontFamily x:Key="RobotoBold">pack://application:,,,/Fonts/Roboto/#Roboto Bold</FontFamily>
+
+    <!--  FontAwesome  -->
+    <FontFamily x:Key="FaBrands">pack://application:,,,/Fonts/FontAwesome/#Font Awesome 5 Free Brands</FontFamily>
+    <FontFamily x:Key="FaRegular">pack://application:,,,/Fonts/FontAwesome/#Font Awesome 5 Free Regular</FontFamily>
+    <FontFamily x:Key="FaSolid">pack://application:,,,/Fonts/FontAwesome/#Font Awesome 5 Free Solid</FontFamily>
+
+
+    <!--  Set default font  -->
+    <Style x:Key="BaseStyle" TargetType="{x:Type Control}">
+        <Setter Property="FontFamily" Value="{StaticResource RobotoRegular}" />
+    </Style>
+
+    <Style x:Key="BaseTextBlockStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontFamily" Value="{StaticResource RobotoRegular}" />
+    </Style>
+
+    <!--  These do not inherit from Control  -->
+    <Style BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type Button}" />
+    <Style BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type Label}" />
+    <Style BasedOn="{StaticResource BaseTextBlockStyle}" TargetType="{x:Type TextBlock}" />
+    <Style BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type ListView}" />
+
+
+    <!--  Font sizes  -->
+    <system:Double x:Key="FontSizeTiny">8</system:Double>
+    <system:Double x:Key="FontSizeSmall">14</system:Double>
+    <system:Double x:Key="FontSizeRegular">20</system:Double>
+    <system:Double x:Key="FontSizeBig">24</system:Double>
+    <system:Double x:Key="FontSizeLarge">30</system:Double>
+
+</ResourceDictionary>

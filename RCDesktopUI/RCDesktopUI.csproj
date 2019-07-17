@@ -73,6 +73,14 @@
     <Compile Include="Views\NonePage.xaml.cs">
       <DependentUpon>NonePage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ControlsConfigPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +128,21 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Roboto\Roboto-Black.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Bold.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Italic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Light.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Medium.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Regular.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Thin.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-ThinItalic.ttf" />
+    <Resource Include="Fonts\FontAwesome\fa-brands-400.ttf" />
+    <Resource Include="Fonts\FontAwesome\fa-regular-400.ttf" />
+    <Resource Include="Fonts\FontAwesome\fa-solid-900.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -135,9 +158,7 @@
       <Name>RCLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Styles\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

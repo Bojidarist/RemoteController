@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--  Generic colors  -->
+    <Color x:Key="BlackColor">#000000</Color>
+    <SolidColorBrush x:Key="BlackColorBrush" Color="{StaticResource BlackColor}" />
+
+    <Color x:Key="WhiteColor">#FFFFFF</Color>
+    <SolidColorBrush x:Key="WhiteColorBrush" Color="{StaticResource WhiteColor}" />
+
+</ResourceDictionary>
