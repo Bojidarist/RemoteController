@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using RCDesktopUI.ViewModels;
+using System.Windows;
 
 namespace RCDesktopUI
 {
@@ -10,6 +11,8 @@ namespace RCDesktopUI
         public MainWindow()
         {
             InitializeComponent();
+
+            this.DataContext = new MainWindowViewModel();
         }
     }
 }
