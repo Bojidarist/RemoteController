@@ -12,18 +12,19 @@ pool:
 variables:
   solution: '**/RCDesktopUI.csproj'
   buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
 
 steps:
 - task: NuGetToolInstaller@1
 
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '$/RCDesktopUI/packages.config'
+    feedsToUse: 'select'
+
 - task: VSBuild@1
   inputs:
-    solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: VSTest@2
-  inputs:
+    solution: '**\RCDesktopUI.csproj'
+    msbuildArgs: '/p:Platform=AnyCPU /p:OutputPath=Build'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
