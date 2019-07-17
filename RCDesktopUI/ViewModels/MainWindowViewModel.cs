@@ -1,4 +1,5 @@
-﻿using RCDesktopUI.ViewModels.Base;
+﻿using RCDesktopUI.Models.DataModels;
+using RCDesktopUI.ViewModels.Base;
 
 namespace RCDesktopUI.ViewModels
 {
@@ -7,11 +8,30 @@ namespace RCDesktopUI.ViewModels
     /// </summary>
     public class MainWindowViewModel : BaseViewModel
     {
-        public string TestString { get; set; }
+        #region Public properties
 
+        /// <summary>
+        /// The current page that is loaded
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+
+        /// <summary>
+        /// The title of the current window
+        /// </summary>
+        public string WindowTitle { get; set; } = "RemoteController";
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public MainWindowViewModel()
         {
 
         }
+
+        #endregion
     }
 }

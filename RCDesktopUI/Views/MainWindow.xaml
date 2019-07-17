@@ -2,16 +2,20 @@
     x:Class="RCDesktopUI.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cnvrt="clr-namespace:RCDesktopUI.ValueConverters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:RCDesktopUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    Title="{Binding WindowTitle}"
     Width="800"
     Height="450"
     mc:Ignorable="d">
 
     <StackPanel>
-        <TextBox Text="{Binding TestString, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBlock Text="{Binding TestString}" />
+        <!--  The current loaded page  -->
+        <Frame
+            x:Name="MainFrame"
+            Content="{Binding CurrentPage, Converter={cnvrt:ApplicationPageConverter}}"
+            NavigationUIVisibility="Hidden" />
     </StackPanel>
 </Window>

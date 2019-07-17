@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace RCDesktopUI.ViewModels.Base
 {
     [AddINotifyPropertyChangedInterface]
-    public class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         /// <summary>
         /// The event that is fired when a property changes value
