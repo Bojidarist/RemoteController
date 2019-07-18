@@ -12,5 +12,14 @@
 
     <StackPanel>
         <TextBlock Text="Login" />
+        <Button
+            Height="200"
+            Background="Black"
+            BorderThickness="0"
+            Content="I"
+            FontSize="{StaticResource FontSizeLarge}"
+            Foreground="{StaticResource WhiteColorBrush}"
+            Style="{StaticResource CircleButton}">
+        </Button>
     </StackPanel>
 </Page>
