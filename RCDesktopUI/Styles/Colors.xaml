@@ -49,4 +49,14 @@
     <Color x:Key="DarkOrangeColor">#c25e00</Color>
     <SolidColorBrush x:Key="DarkOrangeColorBrush" Color="{StaticResource DarkOrangeColor}" />
 
+    <!--  Pink  -->
+    <Color x:Key="PinkColor">#ff1744</Color>
+    <SolidColorBrush x:Key="PinkColorBrush" Color="{StaticResource PinkColor}" />
+
+    <Color x:Key="LightPinkColor">#ff616f</Color>
+    <SolidColorBrush x:Key="LightPinkColorBrush" Color="{StaticResource LightPinkColor}" />
+
+    <Color x:Key="DarkPinkColor">#c4001d</Color>
+    <SolidColorBrush x:Key="DarkPinkColorBrush" Color="{StaticResource DarkPinkColor}" />
+
 </ResourceDictionary>
