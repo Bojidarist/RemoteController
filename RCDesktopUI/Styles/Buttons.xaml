@@ -493,4 +493,227 @@
         </Setter>
     </Style>
 
+    <!--  Ellipse Button  -->
+    <Style
+        x:Key="EllipseButton"
+        BasedOn="{StaticResource BaseStyle}"
+        TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border
+                        x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="100"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+
+                            <Setter TargetName="border" Property="Background" Value="#FFBEE6FD" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="#FF3C7FB1" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#FFC4E5F6" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="#FF2C628B" />
+                        </Trigger>
+                        <Trigger Property="ToggleButton.IsChecked" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#FFBCDDEE" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="#FF245A83" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="#FFF4F4F4" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="#FFADB2B5" />
+                            <Setter Property="Foreground" Value="#FF838383" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  Dark Ellipse Button  -->
+    <Style
+        x:Key="DarkEllipseButton"
+        BasedOn="{StaticResource BaseStyle}"
+        TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border
+                        x:Name="border"
+                        Background="{StaticResource MaterialPrimaryDarkBrush}"
+                        BorderBrush="{StaticResource MaterialPrimaryLightBrush}"
+                        BorderThickness="1"
+                        CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                        </Trigger>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <!--  All animations should be done in a storyboard  -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <!--  Duration is 0(hours):0(minutes):0.25(seconds)  -->
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource MaterialPrimaryMain}"
+                                        Duration="0:0:0.25" />
+                                    <ThicknessAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="BorderThickness"
+                                        To="2"
+                                        Duration="0:0:0.5" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <!--  All animations should be done in a storyboard  -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <!--  Duration is 0(hours):0(minutes):0.25(seconds)  -->
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource MaterialPrimaryDark}"
+                                        Duration="0:0:0.25" />
+                                    <ThicknessAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="BorderThickness"
+                                        To="0.5"
+                                        Duration="0:0:0.5" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource MaterialPrimaryLightBrush}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource MaterialPrimaryLightBrush}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--  Red Ellipse Button  -->
+    <Style
+        x:Key="RedEllipseButton"
+        BasedOn="{StaticResource BaseStyle}"
+        TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Border
+                        x:Name="border"
+                        Background="{StaticResource MaterialSecondaryMainBrush}"
+                        BorderBrush="{StaticResource MaterialSecondaryLightBrush}"
+                        BorderThickness="0.5"
+                        CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
+                        SnapsToDevicePixels="True">
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Button.IsDefaulted" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                        </Trigger>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <!--  All animations should be done in a storyboard  -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <!--  Duration is 0(hours):0(minutes):0.25(seconds)  -->
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource MaterialSecondaryLight}"
+                                        Duration="0:0:0.25" />
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="BorderBrush.Color"
+                                        To="{StaticResource MaterialSecondaryMain}"
+                                        Duration="0:0:0.25" />
+                                    <ThicknessAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="BorderThickness"
+                                        To="2"
+                                        Duration="0:0:0.5" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="MouseLeave">
+                            <!--  All animations should be done in a storyboard  -->
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <!--  Duration is 0(hours):0(minutes):0.25(seconds)  -->
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="Background.Color"
+                                        To="{StaticResource MaterialSecondaryMain}"
+                                        Duration="0:0:0.25" />
+                                    <ColorAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="BorderBrush.Color"
+                                        To="{StaticResource MaterialSecondaryLight}"
+                                        Duration="0:0:0.25" />
+                                    <ThicknessAnimation
+                                        Storyboard.TargetName="border"
+                                        Storyboard.TargetProperty="BorderThickness"
+                                        To="0.5"
+                                        Duration="0:0:0.5" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource MaterialSecondaryLightBrush}" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource MaterialSecondaryLightBrush}" />
+                            <Setter Property="Foreground" Value="#FF838383" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>
