@@ -12,9 +12,14 @@
 
     <StackPanel>
         <TextBlock Text="Login" />
+        <TextBox
+            Margin="8"
+            IsReadOnly="True"
+            Text="Hello">
+        </TextBox>
         <Button
             Height="200"
-            Background="Black"
+            Background="{StaticResource MaterialPrimaryDarkBrush}"
             BorderThickness="0"
             Content="I"
             FontSize="{StaticResource FontSizeLarge}"
