@@ -22,10 +22,31 @@
     <SolidColorBrush x:Key="MaterialSecondaryDarkBrush" Color="{StaticResource MaterialSecondaryDark}" />
 
     <!--  Generic colors  -->
+    <!--  Black/White  -->
     <Color x:Key="BlackColor">#000000</Color>
     <SolidColorBrush x:Key="BlackColorBrush" Color="{StaticResource BlackColor}" />
 
     <Color x:Key="WhiteColor">#FFFFFF</Color>
     <SolidColorBrush x:Key="WhiteColorBrush" Color="{StaticResource WhiteColor}" />
+
+    <!--  Blue  -->
+    <Color x:Key="BlueColor">#0288d1</Color>
+    <SolidColorBrush x:Key="BlueColorBrush" Color="{StaticResource BlueColor}" />
+
+    <Color x:Key="LightBlueColor">#5eb8ff</Color>
+    <SolidColorBrush x:Key="LightBlueColorBrush" Color="{StaticResource LightBlueColor}" />
+
+    <Color x:Key="DarkBlueColor">#005b9f</Color>
+    <SolidColorBrush x:Key="DarkBlueColorBrush" Color="{StaticResource DarkBlueColor}" />
+
+    <!--  Orange  -->
+    <Color x:Key="OrangeColor">#fb8c00</Color>
+    <SolidColorBrush x:Key="OrangeColorBrush" Color="{StaticResource OrangeColor}" />
+
+    <Color x:Key="LightOrangeColor">#ffbd45</Color>
+    <SolidColorBrush x:Key="LightOrangeColorBrush" Color="{StaticResource LightOrangeColor}" />
+
+    <Color x:Key="DarkOrangeColor">#c25e00</Color>
+    <SolidColorBrush x:Key="DarkOrangeColorBrush" Color="{StaticResource DarkOrangeColor}" />
 
 </ResourceDictionary>
