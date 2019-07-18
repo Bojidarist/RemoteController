@@ -14,17 +14,16 @@
         <TextBlock Text="Login" />
         <TextBox
             Margin="8"
-            IsReadOnly="True"
+            IsReadOnly="False"
             Text="Hello">
         </TextBox>
         <Button
             Height="200"
-            Background="{StaticResource MaterialPrimaryDarkBrush}"
-            BorderThickness="0"
             Content="I"
             FontSize="{StaticResource FontSizeLarge}"
             Foreground="{StaticResource WhiteColorBrush}"
-            Style="{StaticResource CircleButton}">
+            IsEnabled="True"
+            Style="{StaticResource DarkCircleButton}">
         </Button>
     </StackPanel>
 </Page>
