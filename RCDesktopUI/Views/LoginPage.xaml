@@ -27,20 +27,20 @@
                 Width="50"
                 Height="50"
                 AllowDrop="False"
-                Style="{StaticResource CircleComboBox}">
+                Style="{StaticResource DarkCircleComboBox}">
                 <!--  Sample ComboBox items  -->
-                <ComboBoxItem Content="a" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="b" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="c" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="d" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="e" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="f" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="g" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="h" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="i" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="j" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="k" Style="{StaticResource CircleComboBoxItem}" />
-                <ComboBoxItem Content="l" Style="{StaticResource CircleComboBoxItem}" />
+                <ComboBoxItem Content="a" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="b" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="c" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="d" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="e" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="f" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="g" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="h" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="i" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="j" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="k" Style="{StaticResource DarkCircleComboBoxItem}" />
+                <ComboBoxItem Content="l" Style="{StaticResource DarkCircleComboBoxItem}" />
             </ComboBox>
         </Button>
     </StackPanel>
