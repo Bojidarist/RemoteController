@@ -37,15 +37,15 @@
 
     <!--  Circle ComboBox  -->
     <Style x:Key="CircleComboBox" TargetType="{x:Type ComboBox}">
-        <Setter Property="Foreground" Value="#333" />
-        <Setter Property="BorderBrush" Value="Gray" />
-        <Setter Property="Background" Value="White" />
+        <Setter Property="Foreground" Value="{StaticResource GrayColorBrush}" />
+        <Setter Property="BorderBrush" Value="{StaticResource LightGrayColorBrush}" />
+        <Setter Property="Background" Value="{StaticResource WhiteColorBrush}" />
         <Setter Property="SnapsToDevicePixels" Value="true" />
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
         <Setter Property="ScrollViewer.CanContentScroll" Value="true" />
-        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
         <Setter Property="MinWidth" Value="35" />
         <Setter Property="MinHeight" Value="35" />
         <Setter Property="Template">
@@ -97,8 +97,8 @@
                                 SnapsToDevicePixels="True">
                                 <Border
                                     x:Name="DropDownBorder"
-                                    Background="White"
-                                    BorderBrush="#F6F6F6"
+                                    Background="{StaticResource WhiteColorBrush}"
+                                    BorderBrush="{StaticResource LightGrayColorBrush}"
                                     BorderThickness="0"
                                     CornerRadius="16,16,16,16" />
                                 <ScrollViewer
@@ -134,7 +134,7 @@
         <Setter Property="SnapsToDevicePixels" Value="true" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
-        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}" />
         <Setter Property="OverridesDefaultStyle" Value="true" />
         <Setter Property="Template">
             <Setter.Value>
@@ -157,7 +157,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsHighlighted" Value="true">
-                            <Setter TargetName="Border" Property="BorderBrush" Value="#B3CB37" />
+                            <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource LightOrangeColorBrush}" />
                             <Setter TargetName="Border" Property="Background" Value="{StaticResource LightPinkColorBrush}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
