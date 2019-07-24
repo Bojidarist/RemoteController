@@ -1,5 +1,6 @@
 ﻿using RCDesktopUI.Models.DataModels;
 using RCDesktopUI.ViewModels.Base;
+using RCLib.Server;
 
 namespace RCDesktopUI.ViewModels
 {
@@ -29,7 +30,7 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public MainWindowViewModel()
         {
-
+            ServerManager manager = new ServerManager(8910);
         }
 
         #endregion
