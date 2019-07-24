@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace RCLib.Server
 {
@@ -57,6 +55,11 @@ namespace RCLib.Server
         {
             // Set the IP address and port
             this.PrivateIPAddress = SingletonTCPServer.singleTCPServer.GetIPAddresses().FirstOrDefault().MapToIPv4().ToString();
+            if (this.PrivateIPAddress == null)
+            {
+                throw new NullReferenceException("The IP address is null.");
+            }
+
             this.Port = port;
 
             // Event listeners
