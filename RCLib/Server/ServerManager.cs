@@ -4,6 +4,9 @@ using System.Net;
 
 namespace RCLib.Server
 {
+    /// <summary>
+    /// A class for managing the server's properties and events
+    /// </summary>
     public class ServerManager
     {
         #region Public properties
