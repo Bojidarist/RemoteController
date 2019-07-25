@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RCLib.Models;
+using System;
 using System.Linq;
 using System.Net;
 
@@ -14,7 +15,7 @@ namespace RCLib.Server
         /// <summary>
         /// This event fires when the current server instance recieves a new message
         /// </summary>
-        public event EventHandler ServerDataRecieved;
+        public event EventHandler<IConsoleButton> ServerDataRecieved;
 
         /// <summary>
         /// The current IP address used by the server
