@@ -5,6 +5,7 @@ using System.Net.NetworkInformation;
 using RCLib.Helpers;
 using RCLib.Models;
 using System.Text;
+using System.Net.Sockets;
 
 namespace RCLib.Server
 {
@@ -19,6 +20,16 @@ namespace RCLib.Server
         /// This event fires when the current server instance receives a new message
         /// </summary>
         public event EventHandler<ConsoleButtonEventArgs> ServerDataReceived;
+
+        /// <summary>
+        /// This event fires when a device/client is connected to the server
+        /// </summary>
+        public event EventHandler<TcpClient> DeviceConnected;
+
+        /// <summary>
+        /// This event fires when a device/client is disconnected from the server
+        /// </summary>
+        public event EventHandler<TcpClient> DeviceDisconnected;
 
         /// <summary>
         /// The current IP address used by the server
@@ -66,7 +77,7 @@ namespace RCLib.Server
             this.Port = port;
 
             // Event listeners
-            SingletonTCPServer.singleTCPServer.DataReceived += SingleTCPServer_DataReceived;
+            this.SetUpEventListeners();
         }
 
         /// <summary>
@@ -93,7 +104,7 @@ namespace RCLib.Server
             this.Port = port;
 
             // Event listeners
-            SingletonTCPServer.singleTCPServer.DataReceived += SingleTCPServer_DataReceived;
+            this.SetUpEventListeners();
         }
 
         #endregion
@@ -131,6 +142,16 @@ namespace RCLib.Server
             SingletonTCPServer.singleTCPServer.Broadcast(message);
         }
 
+        /// <summary>
+        /// Private helper method to easly set up event listeners
+        /// </summary>
+        private void SetUpEventListeners()
+        {
+            SingletonTCPServer.singleTCPServer.DataReceived += SingleTCPServer_DataReceived;
+            SingletonTCPServer.singleTCPServer.ClientConnected += SingleTCPServer_ClientConnected;
+            SingletonTCPServer.singleTCPServer.ClientDisconnected += SingleTCPServer_ClientDisconnected;
+        }
+
         #endregion
 
         #region Events
@@ -151,6 +172,32 @@ namespace RCLib.Server
                     IConsoleButton data = this.ParseConsoleButtonFromCSV(input.ReturnCleanASCII());
                     this.ServerDataReceived?.Invoke(this, new ConsoleButtonEventArgs(data));
                 }
+            }
+        }
+
+        /// <summary>
+        /// The event from the singleton server that fires when a device/client is connected
+        /// </summary>
+        /// <param name="sender">The sender object</param>
+        /// <param name="e">The client</param>
+        private void SingleTCPServer_ClientConnected(object sender, TcpClient e)
+        {
+            if (e != null)
+            {
+                this.DeviceConnected?.Invoke(this, e);
+            }
+        }
+
+        /// <summary>
+        /// The event from the singleton server that fires when a device/client is disconnected from the server
+        /// </summary>
+        /// <param name="sender">The sender object</param>
+        /// <param name="e">The client</param>
+        private void SingleTCPServer_ClientDisconnected(object sender, TcpClient e)
+        {
+            if (e != null)
+            {
+                this.DeviceDisconnected?.Invoke(this, e);
             }
         }
 
