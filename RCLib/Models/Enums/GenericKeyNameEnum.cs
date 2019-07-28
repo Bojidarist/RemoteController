@@ -8,37 +8,37 @@
         /// <summary>
         /// No key
         /// </summary>
-        None = 0,
+        NONE = 0,
 
         /// <summary>
         /// The left navigation button
         /// </summary>
-        LeftArrow = 1,
+        LEFTARROW = 1,
 
         /// <summary>
         /// The right navigation button
         /// </summary>
-        RightArrow = 2,
+        RIGHTARROW = 2,
         
         /// <summary>
         /// The up navigation button
         /// </summary>
-        UpArrow = 3,
+        UPARROW = 3,
 
         /// <summary>
         /// The down navigation button
         /// </summary>
-        DownArrow = 4,
+        DOWNARROW = 4,
         
         /// <summary>
         /// The select button
         /// </summary>
-        Select = 5,
+        SELECT = 5,
 
         /// <summary>
         /// The start button
         /// </summary>
-        Start = 6,
+        START = 6,
 
         /// <summary>
         /// The A button

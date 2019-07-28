@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using RCLib.Helpers;
+using RCLib.Models;
 
 namespace RCLib.Server
 {
@@ -14,7 +16,7 @@ namespace RCLib.Server
         /// <summary>
         /// This event fires when the current server instance recieves a new message
         /// </summary>
-        public event EventHandler ServerDataRecieved;
+        public event EventHandler<ConsoleButtonEventArgs> ServerDataRecieved;
 
         /// <summary>
         /// The current IP address used by the server
@@ -95,6 +97,15 @@ namespace RCLib.Server
             }
         }
 
+        /// <summary>
+        /// Broadcast a message to all connected clients
+        /// </summary>
+        /// <param name="message">The message to be broadcasted</param>
+        public void BroadcastMessage(string message)
+        {
+            SingletonTCPServer.singleTCPServer.Broadcast(message);
+        }
+
         #endregion
 
         #region Events
@@ -106,7 +117,16 @@ namespace RCLib.Server
         /// <param name="e">The recieved message</param>
         private void SingleTCPServer_DataReceived(object sender, SimpleTCPStandar.Message e)
         {
-            throw new NotImplementedException();
+            // Split all inputs (useful if there are alot of inputs at the same time)
+            string[] inputs = e.MessageString.ReturnCleanASCII().Split(new char[] { ' ' }, 100, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string input in inputs)
+            {
+                if (!string.IsNullOrWhiteSpace(input))
+                {
+                    IConsoleButton data = this.ParseConsoleButtonFromCSV(input.ReturnCleanASCII());
+                    this.ServerDataRecieved?.Invoke(this, new ConsoleButtonEventArgs(data));
+                }
+            }
         }
 
         #endregion
