@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.NetworkInformation;
 using RCLib.Helpers;
 using RCLib.Models;
+using System.Text;
 
 namespace RCLib.Server
 {
@@ -15,9 +16,9 @@ namespace RCLib.Server
         #region Public properties
 
         /// <summary>
-        /// This event fires when the current server instance recieves a new message
+        /// This event fires when the current server instance receives a new message
         /// </summary>
-        public event EventHandler<ConsoleButtonEventArgs> ServerDataRecieved;
+        public event EventHandler<ConsoleButtonEventArgs> ServerDataReceived;
 
         /// <summary>
         /// The current IP address used by the server
@@ -33,6 +34,21 @@ namespace RCLib.Server
         /// The number of connected devices
         /// </summary>
         public int ConnectedDevicesCount { get { return SingletonTCPServer.singleTCPServer.ConnectedClientsCount; } }
+
+        /// <summary>
+        /// The encoding used by the server when sending/receiving messages
+        /// </summary>
+        public Encoding ServerStringEncoding
+        {
+            get
+            {
+                return SingletonTCPServer.singleTCPServer.StringEncoder;
+            }
+            set
+            {
+                SingletonTCPServer.singleTCPServer.StringEncoder = value;
+            }
+        }
 
         #endregion
 
@@ -120,10 +136,10 @@ namespace RCLib.Server
         #region Events
 
         /// <summary>
-        /// The event from the singleton server that fires when a message is recieved
+        /// The event from the singleton server that fires when a message is received
         /// </summary>
         /// <param name="sender">The sender object</param>
-        /// <param name="e">The recieved message</param>
+        /// <param name="e">The received message</param>
         private void SingleTCPServer_DataReceived(object sender, SimpleTCPStandar.Message e)
         {
             // Split all inputs (useful if there are alot of inputs at the same time)
@@ -133,7 +149,7 @@ namespace RCLib.Server
                 if (!string.IsNullOrWhiteSpace(input))
                 {
                     IConsoleButton data = this.ParseConsoleButtonFromCSV(input.ReturnCleanASCII());
-                    this.ServerDataRecieved?.Invoke(this, new ConsoleButtonEventArgs(data));
+                    this.ServerDataReceived?.Invoke(this, new ConsoleButtonEventArgs(data));
                 }
             }
         }
