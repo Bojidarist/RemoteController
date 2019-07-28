@@ -1,6 +1,8 @@
 ﻿using RCLib.Models;
 using RCLib.Models.ConsoleSpecific;
 using RCLib.Server;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 
 namespace RCLib.Helpers
 {
@@ -25,6 +27,30 @@ namespace RCLib.Helpers
             result.KeyState = EnumHelpers.ParseEnum<ConsoleKeyStateEnum>(data[2]);
 
             return result;
+        }
+
+        /// <summary>
+        /// Get the local IPv4 of the current server depending on <see cref="NetworkInterfaceType"/>
+        /// </summary>
+        /// <param name="mngr">The <see cref="ServerManager"/> instance</param>
+        /// <param name="networkType">The network type</param>
+        public static string GetLocalIPv4(this ServerManager mngr, NetworkInterfaceType networkType)
+        {
+            string output = "";
+            foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (item.NetworkInterfaceType == networkType && item.OperationalStatus == OperationalStatus.Up)
+                {
+                    foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
+                    {
+                        if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            output = ip.Address.ToString();
+                        }
+                    }
+                }
+            }
+            return output;
         }
     }
 }
