@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using RCLib.Helpers;
 using RCLib.Models;
 
@@ -60,9 +61,17 @@ namespace RCLib.Server
         {
             // Set the IP address and port
             this.PrivateIPAddress = SingletonTCPServer.singleTCPServer.GetIPAddresses().FirstOrDefault().MapToIPv4().ToString();
-            if (this.PrivateIPAddress == null)
+            if (string.IsNullOrWhiteSpace(this.PrivateIPAddress))
             {
-                throw new NullReferenceException("The IP address is null.");
+                this.PrivateIPAddress = this.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
+                if (string.IsNullOrWhiteSpace(this.PrivateIPAddress))
+                {
+                    this.PrivateIPAddress = this.GetLocalIPv4(NetworkInterfaceType.Ethernet);
+                    if (string.IsNullOrWhiteSpace(this.PrivateIPAddress))
+                    {
+                        throw new NullReferenceException("The IP address is not found.");
+                    }
+                }
             }
 
             this.Port = port;
