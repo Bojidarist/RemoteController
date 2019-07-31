@@ -106,6 +106,28 @@ namespace RCLib.Client
         }
 
         /// <summary>
+        /// Parse the button to CSV and send it to the server
+        /// </summary>
+        /// <param name="button">The button to be sent</param>
+        /// <param name="seperator">The character that will seperate different requests</param>
+        /// <param name="isWriteLine">If <see cref="Write(string)"/> or <see cref="WriteLine(string)"/> will be used</param>
+        public void SendConsoleButtonAsCSV(IConsoleButton button, char seperator = ' ', bool isWriteLine = true)
+        {
+            if (button != null)
+            {
+                string message = $"{ button.ParseToCSV() }{ seperator }";
+                if (isWriteLine)
+                {
+                    this.WriteLine(message);
+                }
+                else
+                {
+                    this.Write(message);
+                }
+            }
+        }
+
+        /// <summary>
         /// Connect to a server given a IP address and a port
         /// </summary>
         /// <param name="ip">The IP address of the server the client will connect to</param>
