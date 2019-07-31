@@ -164,7 +164,7 @@ namespace RCLib.Client
         /// <param name="ip">The IP address of the server the client will connect to</param>
         /// <param name="port">The port of the server the client will connect to</param>
         /// <param name="timeout">The timeout of the request (in seconds)</param>
-        public void BeginConnect(string ip, int port, int timeout)
+        public void BeginConnect(string ip, int port, int timeout = 3)
         {
             if (!this.IsConnected)
             {
