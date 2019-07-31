@@ -29,11 +29,16 @@
         /// <summary>
         /// Default constructor
         /// </summary>
-        public GenericConsoleButton()
+        /// <param name="consoleName">The name of the console this button is from</param>
+        /// <param name="keyName">The name of this button</param>
+        /// <param name="keyState">The state of this button</param>
+        public GenericConsoleButton(ConsoleNameEnum consoleName = ConsoleNameEnum.NONE,
+                                    GenericKeyNameEnum keyName = GenericKeyNameEnum.NONE,
+                                    ConsoleKeyStateEnum keyState = ConsoleKeyStateEnum.NONE)
         {
-            this.ConsoleName = ConsoleNameEnum.NONE;
-            this.KeyName = GenericKeyNameEnum.NONE;
-            this.KeyState = ConsoleKeyStateEnum.NONE;
+            this.ConsoleName = consoleName;
+            this.KeyName = keyName;
+            this.KeyState = keyState;
         }
 
         #endregion
