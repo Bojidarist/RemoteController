@@ -152,7 +152,10 @@ namespace RCLib.Client
         /// <param name="port">The port of the server the client will connect to</param>
         public void Connect(string ip, int port)
         {
-            this.TcpClient.Connect(ip, port);
+            if (!this.IsConnected)
+            {
+                this.TcpClient.Connect(ip, port);
+            }
         }
 
         /// <summary>
@@ -163,7 +166,10 @@ namespace RCLib.Client
         /// <param name="timeout">The timeout of the request (in seconds)</param>
         public void BeginConnect(string ip, int port, int timeout)
         {
-            this.TcpClient.BeginConnect(ip, port, timeout);
+            if (!this.IsConnected)
+            {
+                this.TcpClient.BeginConnect(ip, port, timeout);
+            }
         }
 
         /// <summary>
@@ -171,7 +177,10 @@ namespace RCLib.Client
         /// </summary>
         public void Disconnect()
         {
-            this.TcpClient.Disconnect();
+            if (this.IsConnected)
+            {
+                this.TcpClient.Disconnect();
+            }
         }
 
         #endregion
