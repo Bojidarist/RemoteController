@@ -38,6 +38,24 @@ namespace RCLib.Client
             }
         }
 
+        /// <summary>
+        /// Indicates if the client is connected to a server
+        /// </summary>
+        public bool IsConnected
+        {
+            get
+            {
+                if (this.TcpClient.TcpClient != null)
+                {
+                    return this.TcpClient.TcpClient.Connected;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         #endregion
 
         #region Constructors
