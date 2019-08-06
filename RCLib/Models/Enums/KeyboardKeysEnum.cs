@@ -1,4 +1,4 @@
-﻿namespace RCLib.Models.Enums
+﻿namespace RCLib.Models
 {
     /// <summary>
     /// The keyboard keys
