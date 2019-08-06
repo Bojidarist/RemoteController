@@ -6,7 +6,7 @@
     public enum ConsoleKeyStateEnum
     {
         /// <summary>
-        /// The key is not pressed
+        /// The key is not pressed or released
         /// </summary>
         NONE = 0,
 
