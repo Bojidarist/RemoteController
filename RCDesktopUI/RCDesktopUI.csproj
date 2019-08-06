@@ -68,6 +68,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SelectedControllerKeys\SelectedNESKeys.cs" />
+    <Compile Include="ValueConverters\StaticConverters\KeyboardKeyToKeyCodeConverter.cs" />
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\ControlsConfigViewModel.cs" />
@@ -118,7 +120,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\DataModels\ApplicationPage.cs" />
-    <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\Base\BaseValueConverter.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
