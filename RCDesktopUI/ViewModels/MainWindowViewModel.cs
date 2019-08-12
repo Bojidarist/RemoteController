@@ -1,6 +1,5 @@
 ﻿using RCDesktopUI.Models.DataModels;
 using RCDesktopUI.ViewModels.Base;
-using RCLib.Server;
 
 namespace RCDesktopUI.ViewModels
 {

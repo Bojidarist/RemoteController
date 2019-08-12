@@ -1,6 +1,7 @@
 ﻿using RCDesktopUI.Server;
 using RCDesktopUI.ViewModels.Base;
 using RCDesktopUI.Views;
+using RCLib.Server;
 
 namespace RCDesktopUI.ViewModels
 {
@@ -9,18 +10,10 @@ namespace RCDesktopUI.ViewModels
     /// </summary>
     public class LoginViewModel : BaseViewModel
     {
-        private string mCurrentIP = SingletonServerManager.SingleServerManager.PrivateIPAddress;
-        public string CurrentIP
-        {
-            get
-            {
-                return mCurrentIP;
-            }
-            set
-            {
-                this.mCurrentIP = value;
-            }
-        }
+        /// <summary>
+        /// The current ip from the singleton <see cref="ServerManager"/>
+        /// </summary>
+        public string CurrentIP { get; set; } = SingletonServerManager.SingleServerManager.PrivateIPAddress;
 
         /// <summary>
         /// Default constructor
