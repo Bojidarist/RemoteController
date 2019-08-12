@@ -21,6 +21,26 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public string WindowTitle { get; set; } = "RemoteController";
 
+        /// <summary>
+        /// The height of the current window
+        /// </summary>
+        public int WindowHeight { get; set; } = 800;
+
+        /// <summary>
+        /// The width of the current window
+        /// </summary>
+        public int WindowWidth { get; set; } = 1000;
+
+        /// <summary>
+        /// The minimal height of the current window
+        /// </summary>
+        public int MinWindowHeight { get; set; } = 600;
+
+        /// <summary>
+        /// The minimal width of the current window
+        /// </summary>
+        public int MinWindowWidth { get; set; } = 800;
+
         #endregion
 
         #region Constructors
@@ -30,7 +50,6 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public MainWindowViewModel()
         {
-            ServerManager manager = new ServerManager(8910);
         }
 
         #endregion

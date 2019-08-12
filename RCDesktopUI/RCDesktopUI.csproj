@@ -69,6 +69,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="SelectedControllerKeys\SelectedNESKeys.cs" />
+    <Compile Include="Server\SingletonServerManager.cs" />
     <Compile Include="ValueConverters\StaticConverters\GenericKeyNameToKeyCodeFromSelectedNESKeysConverter.cs" />
     <Compile Include="ValueConverters\StaticConverters\KeyboardKeyToKeyCodeConverter.cs" />
     <Compile Include="ValueConverters\ApplicationPageConverter.cs" />

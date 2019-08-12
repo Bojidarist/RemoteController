@@ -10,6 +10,6 @@ namespace RCDesktopUI.Server
         /// <summary>
         /// The server manager
         /// </summary>
-        public static ServerManager SingleServerManager { get; } = new ServerManager();
+        public static ServerManager SingleServerManager { get; } = new ServerManager(8910);
     }
 }

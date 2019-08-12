@@ -1,4 +1,5 @@
-﻿using RCDesktopUI.ViewModels.Base;
+﻿using RCDesktopUI.Server;
+using RCDesktopUI.ViewModels.Base;
 using RCDesktopUI.Views;
 
 namespace RCDesktopUI.ViewModels
@@ -8,6 +9,19 @@ namespace RCDesktopUI.ViewModels
     /// </summary>
     public class LoginViewModel : BaseViewModel
     {
+        private string mCurrentIP = SingletonServerManager.SingleServerManager.PrivateIPAddress;
+        public string CurrentIP
+        {
+            get
+            {
+                return mCurrentIP;
+            }
+            set
+            {
+                this.mCurrentIP = value;
+            }
+        }
+
         /// <summary>
         /// Default constructor
         /// </summary>

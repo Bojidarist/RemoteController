@@ -7,16 +7,18 @@
     xmlns:local="clr-namespace:RCDesktopUI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="{Binding WindowTitle}"
-    Width="800"
-    Height="450"
+    Width="{Binding WindowWidth}"
+    Height="{Binding WindowHeight}"
+    MinWidth="{Binding MinWindowWidth}"
+    MinHeight="{Binding MinWindowHeight}"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
-    <StackPanel>
+    <Grid>
         <!--  The current loaded page  -->
         <Frame
             x:Name="MainFrame"
             Content="{Binding CurrentPage, Converter={cnvrt:ApplicationPageConverter}}"
             NavigationUIVisibility="Hidden" />
-    </StackPanel>
+    </Grid>
 </Window>
