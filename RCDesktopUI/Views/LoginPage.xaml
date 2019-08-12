@@ -34,6 +34,7 @@
             Margin="8"
             HorizontalContentAlignment="Center"
             FontSize="{StaticResource FontSizeVeryLarge}"
+            IsEnabled="{Binding IsNotStartingServer}"
             Text="{Binding CurrentIP}" />
         <Button
             Grid.Row="3"

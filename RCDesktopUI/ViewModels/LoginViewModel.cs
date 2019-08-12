@@ -43,12 +43,16 @@ namespace RCDesktopUI.ViewModels
         public LoginViewModel()
         {
             this.MakeCommands();
+            this.InitialChecks();
         }
 
         #endregion
 
         #region Methods
 
+        /// <summary>
+        /// Method for making all the commands used in the current view model.
+        /// </summary>
         private void MakeCommands()
         {
             this.StartServerClickedCommand = new RelayCommand(() =>
@@ -58,6 +62,18 @@ namespace RCDesktopUI.ViewModels
                 SingletonServerManager.SingleServerManager.StartServer();
                 this.StartServerButtonText = "Started";
             });
+        }
+
+        /// <summary>
+        /// All initial checks when the view model is loaded
+        /// </summary>
+        private void InitialChecks()
+        {
+            if (SingletonServerManager.SingleServerManager.IsServerStarted)
+            {
+                this.IsNotStartingServer = false;
+                this.StartServerButtonText = "Started";
+            }
         }
 
         #endregion
