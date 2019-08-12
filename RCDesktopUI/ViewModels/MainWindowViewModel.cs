@@ -53,7 +53,38 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public MainWindowViewModel()
         {
-            
+            this.StartConnectionListener();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// When a user connects to the server change the <see cref="ApplicationPage"/>
+        /// <paramref name="minConnections">The minimum connections needed for this to trigger</paramref>
+        /// </summary>
+        public void StartConnectionListener(int minConnections = 1)
+        {
+            // Make the command
+            ICommand connectionChecker = new RelayCommand(async () =>
+            {
+                while (true)
+                {
+                    await Task.Delay(1000);
+                    if (SingletonServerManager.SingleServerManager.ConnectedDevicesCount >= minConnections)
+                    {
+                        this.CurrentPage = ApplicationPage.ControlsConfig;
+                    }
+                    else
+                    {
+                        this.CurrentPage = ApplicationPage.Login;
+                    }
+                }
+            });
+
+            // Start the listener
+            connectionChecker.Execute(null);
         }
 
         #endregion
