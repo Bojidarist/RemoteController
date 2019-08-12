@@ -1,5 +1,9 @@
 ﻿using RCDesktopUI.Models.DataModels;
+using RCDesktopUI.Server;
 using RCDesktopUI.ViewModels.Base;
+using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace RCDesktopUI.ViewModels
 {
@@ -49,6 +53,7 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public MainWindowViewModel()
         {
+            
         }
 
         #endregion

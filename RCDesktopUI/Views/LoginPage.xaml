@@ -40,8 +40,10 @@
             Grid.Column="2"
             Margin="8"
             Padding="8"
-            Content="Start Server"
+            Command="{Binding StartServerClickedCommand}"
+            Content="{Binding StartServerButtonText}"
             FontSize="{StaticResource FontSizeBig}"
-            Foreground="{StaticResource WhiteColorBrush}" />
+            Foreground="{StaticResource WhiteColorBrush}"
+            IsEnabled="{Binding IsNotStartingServer}" />
     </Grid>
 </Page>
