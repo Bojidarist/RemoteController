@@ -87,24 +87,19 @@ namespace RCLib.Server
         public ServerManager(int port)
         {
             // Set the IP address and port
-            this.PrivateIPAddress = SingletonTCPServer.singleTCPServer.GetIPAddresses().FirstOrDefault().MapToIPv4().ToString();
-            if (string.IsNullOrWhiteSpace(this.PrivateIPAddress))
-            {
-                this.PrivateIPAddress = this.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
-                if (string.IsNullOrWhiteSpace(this.PrivateIPAddress))
-                {
-                    this.PrivateIPAddress = this.GetLocalIPv4(NetworkInterfaceType.Ethernet);
-                    if (string.IsNullOrWhiteSpace(this.PrivateIPAddress))
-                    {
-                        throw new NullReferenceException("The IP address is not found.");
-                    }
-                }
-            }
-
+            this.PrivateIPAddress = this.FindLocalIPv4();
             this.Port = port;
 
             // Event listeners
             this.SetUpEventListeners();
+        }
+
+        /// <summary>
+        /// Constructor without parameters
+        /// </summary>
+        public ServerManager()
+        {
+
         }
 
         #endregion
@@ -140,6 +135,29 @@ namespace RCLib.Server
         public void BroadcastMessage(string message)
         {
             SingletonTCPServer.singleTCPServer.Broadcast(message);
+        }
+
+        /// <summary>
+        /// A method that tries to find the local IPv4 address of the system
+        /// </summary>
+        /// <returns></returns>
+        public string FindLocalIPv4()
+        {
+            string ip = SingletonTCPServer.singleTCPServer.GetIPAddresses().FirstOrDefault().MapToIPv4().ToString();
+            if (string.IsNullOrWhiteSpace(ip))
+            {
+                ip = this.GetLocalIPv4(NetworkInterfaceType.Wireless80211);
+                if (string.IsNullOrWhiteSpace(ip))
+                {
+                    ip = this.GetLocalIPv4(NetworkInterfaceType.Ethernet);
+                    if (string.IsNullOrWhiteSpace(ip))
+                    {
+                        throw new NullReferenceException("The IP address is not found.");
+                    }
+                }
+            }
+
+            return ip;
         }
 
         /// <summary>
