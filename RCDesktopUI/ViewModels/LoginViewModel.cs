@@ -23,7 +23,7 @@ namespace RCDesktopUI.ViewModels
         /// <summary>
         /// A boolean that indicates if the program is not currently starting a server
         /// </summary>
-        public bool IsNotStartingServer { get; set; } = true;
+        public bool IsServerNotStarting { get; set; } = true;
 
         public string StartServerButtonText { get; set; } = "Start Server";
 
@@ -57,7 +57,7 @@ namespace RCDesktopUI.ViewModels
         {
             this.StartServerClickedCommand = new RelayCommand(() =>
             {
-                this.IsNotStartingServer = false;
+                this.IsServerNotStarting = false;
                 SingletonServerManager.SingleServerManager.PrivateIPAddress = this.CurrentIP;
                 SingletonServerManager.SingleServerManager.StartServer();
                 this.StartServerButtonText = "Started";
@@ -71,7 +71,7 @@ namespace RCDesktopUI.ViewModels
         {
             if (SingletonServerManager.SingleServerManager.IsServerStarted)
             {
-                this.IsNotStartingServer = false;
+                this.IsServerNotStarting = false;
                 this.StartServerButtonText = "Started";
             }
         }

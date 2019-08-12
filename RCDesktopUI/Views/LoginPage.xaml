@@ -34,7 +34,7 @@
             Margin="8"
             HorizontalContentAlignment="Center"
             FontSize="{StaticResource FontSizeVeryLarge}"
-            IsEnabled="{Binding IsNotStartingServer}"
+            IsEnabled="{Binding IsServerNotStarting}"
             Text="{Binding CurrentIP}" />
         <Button
             Grid.Row="3"
@@ -45,6 +45,6 @@
             Content="{Binding StartServerButtonText}"
             FontSize="{StaticResource FontSizeBig}"
             Foreground="{StaticResource WhiteColorBrush}"
-            IsEnabled="{Binding IsNotStartingServer}" />
+            IsEnabled="{Binding IsServerNotStarting}" />
     </Grid>
 </Page>
