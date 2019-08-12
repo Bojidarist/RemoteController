@@ -63,15 +63,15 @@ namespace RCDesktopUI.ViewModels
         /// <summary>
         /// When a user connects to the server change the <see cref="ApplicationPage"/>
         /// <paramref name="minConnections">The minimum connections needed for this to trigger</paramref>
+        /// <paramref name="delayBetweenCheck">The delay between every check in milliseconds</paramref>
         /// </summary>
-        public void StartConnectionListener(int minConnections = 1)
+        public void StartConnectionListener(int minConnections = 1, int delayBetweenCheck = 1000)
         {
             // Make the command
             ICommand connectionChecker = new RelayCommand(async () =>
             {
                 while (true)
                 {
-                    await Task.Delay(1000);
                     if (SingletonServerManager.SingleServerManager.ConnectedDevicesCount >= minConnections)
                     {
                         this.CurrentPage = ApplicationPage.ControlsConfig;
@@ -80,6 +80,7 @@ namespace RCDesktopUI.ViewModels
                     {
                         this.CurrentPage = ApplicationPage.Login;
                     }
+                    await Task.Delay(delayBetweenCheck);
                 }
             });
 
