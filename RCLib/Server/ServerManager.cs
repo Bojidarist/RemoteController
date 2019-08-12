@@ -61,6 +61,11 @@ namespace RCLib.Server
             }
         }
 
+        /// <summary>
+        /// Indicates if the server is already started
+        /// </summary>
+        public bool IsServerStarted { get { return SingletonTCPServer.singleTCPServer.IsStarted; } }
+
         #endregion
 
         #region Constructors
@@ -111,7 +116,7 @@ namespace RCLib.Server
         /// </summary>
         public void StartServer()
         {
-            if (!SingletonTCPServer.singleTCPServer.IsStarted)
+            if (!this.IsServerStarted)
             {
                 SingletonTCPServer.singleTCPServer.Start(IPAddress.Parse(this.PrivateIPAddress), this.Port);
             }
@@ -122,7 +127,7 @@ namespace RCLib.Server
         /// </summary>
         public void StopServer()
         {
-            if (SingletonTCPServer.singleTCPServer.IsStarted)
+            if (this.IsServerStarted)
             {
                 SingletonTCPServer.singleTCPServer.Stop();
             }
