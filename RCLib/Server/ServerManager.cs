@@ -104,7 +104,8 @@ namespace RCLib.Server
         /// </summary>
         public ServerManager()
         {
-
+            // Event listeners
+            this.SetUpEventListeners();
         }
 
         #endregion
@@ -116,7 +117,7 @@ namespace RCLib.Server
         /// </summary>
         public void StartServer()
         {
-            if (!this.IsServerStarted)
+            if (!this.IsServerStarted && !String.IsNullOrWhiteSpace(this.PrivateIPAddress) && this.Port != 0)
             {
                 SingletonTCPServer.singleTCPServer.Start(IPAddress.Parse(this.PrivateIPAddress), this.Port);
             }
@@ -145,8 +146,8 @@ namespace RCLib.Server
         /// <summary>
         /// A method that tries to find the local IPv4 address of the system
         /// </summary>
-        /// <returns></returns>
-        public string FindLocalIPv4()
+        /// <param name="throwExceptionIfNullOrEmpty">Indicates if exception will be thrown if this method cannot find an IP address</param>
+        public string FindLocalIPv4(bool throwExceptionIfNullOrEmpty = false)
         {
             string ip = SingletonTCPServer.singleTCPServer.GetIPAddresses().FirstOrDefault().MapToIPv4().ToString();
             if (string.IsNullOrWhiteSpace(ip))
@@ -157,7 +158,14 @@ namespace RCLib.Server
                     ip = this.GetLocalIPv4(NetworkInterfaceType.Ethernet);
                     if (string.IsNullOrWhiteSpace(ip))
                     {
-                        throw new NullReferenceException("The IP address is not found.");
+                        if (throwExceptionIfNullOrEmpty)
+                        {
+                            throw new NullReferenceException("The IP address is not found.");
+                        }
+                        else
+                        {
+                            return ip;
+                        }
                     }
                 }
             }

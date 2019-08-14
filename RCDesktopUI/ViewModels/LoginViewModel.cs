@@ -4,6 +4,7 @@ using RCDesktopUI.Views;
 using RCLib.Server;
 using System;
 using System.Net.Sockets;
+using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace RCDesktopUI.ViewModels
@@ -36,6 +37,16 @@ namespace RCDesktopUI.ViewModels
         public string StartServerButtonText { get; set; } = "Start Server";
 
         /// <summary>
+        /// The text used by the DetectIP button
+        /// </summary>
+        public string DetectIPButtonText { get; set; } = " Detect  IP ";
+
+        /// <summary>
+        /// The visibility for DetectIP button (0 = Collapsed, 1 = Hidden, 2 = Visible)
+        /// </summary>
+        public int DetectIPButtonVisibility { get; set; } = 2;
+
+        /// <summary>
         /// The placeholder text used by IPBox
         /// </summary>
         public string IPBoxPlaceholderText { get; set; } = "Enter your IP here!";
@@ -48,6 +59,11 @@ namespace RCDesktopUI.ViewModels
         /// The command that executes when the StartServer button is clicked
         /// </summary>
         public ICommand StartServerClickedCommand { get; set; }
+
+        /// <summary>
+        /// The command that executes when the DetectIP button is clicked
+        /// </summary>
+        public ICommand DetectIPClickedCommand { get; set; }
 
         #endregion
 
@@ -71,40 +87,66 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         private void MakeCommands()
         {
-            this.StartServerClickedCommand = new RelayCommand(() =>
+            this.StartServerClickedCommand = new RelayCommand(async () =>
             {
-                if (SingletonServerManager.SingleServerManager.IsServerStarted)
+                await Task.Run(() =>
                 {
-                    this.IsServerNotStarting = false;
-                    SingletonServerManager.SingleServerManager.StopServer();
-                    this.StartServerButtonText = "Start Server";
-                    this.IsServerNotStarting = true;
-                    this.IsIPBoxEnabled = true;
-                }
-                else
+                    if (SingletonServerManager.SingleServerManager.IsServerStarted)
+                    {
+                        this.IsServerNotStarting = false;
+                        SingletonServerManager.SingleServerManager.StopServer();
+                        this.StartServerButtonText = "Start Server";
+                        this.DetectIPButtonVisibility = 2;
+                        this.IsServerNotStarting = true;
+                        this.IsIPBoxEnabled = true;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            this.IsServerNotStarting = false;
+                            this.IsIPBoxEnabled = false;
+                            SingletonServerManager.SingleServerManager.PrivateIPAddress = this.CurrentIP;
+                            SingletonServerManager.SingleServerManager.StartServer();
+                            this.StartServerButtonText = "Stop Server";
+                            this.DetectIPButtonVisibility = 0;
+                            this.IsServerNotStarting = true;
+                        }
+                        catch (FormatException)
+                        {
+                            this.CurrentIP = "Invalid IP Address";
+                        }
+                        catch (SocketException)
+                        {
+                            this.CurrentIP = "Invalid IP Address";
+                        }
+                        finally
+                        {
+                            this.InitialChecks();
+                        }
+                    }
+                });
+            });
+
+            this.DetectIPClickedCommand = new RelayCommand(async () =>
+            {
+                await Task.Run(() =>
                 {
                     try
                     {
                         this.IsServerNotStarting = false;
-                        this.IsIPBoxEnabled = false;
-                        SingletonServerManager.SingleServerManager.PrivateIPAddress = this.CurrentIP;
-                        SingletonServerManager.SingleServerManager.StartServer();
-                        this.StartServerButtonText = "Stop Server";
+                        this.CurrentIP = SingletonServerManager.SingleServerManager.FindLocalIPv4(true);
                         this.IsServerNotStarting = true;
                     }
-                    catch(FormatException)
+                    catch (NullReferenceException)
                     {
-                        this.CurrentIP = "Invalid IP Address";
-                    }
-                    catch (SocketException)
-                    {
-                        this.CurrentIP = "Invalid IP Address";
+                        this.CurrentIP = "IP not found";
                     }
                     finally
                     {
-                        this.InitialChecks();
+                        InitialChecks();
                     }
-                }
+                });
             });
         }
 
@@ -118,12 +160,14 @@ namespace RCDesktopUI.ViewModels
                 this.IsIPBoxEnabled = false;
                 this.StartServerButtonText = "Stop Server";
                 this.IsServerNotStarting = true;
+                this.DetectIPButtonVisibility = 0;
             }
             else
             {
                 this.IsIPBoxEnabled = true;
                 this.StartServerButtonText = "Start Server";
                 this.IsServerNotStarting = true;
+                this.DetectIPButtonVisibility = 2;
             }
         }
 
