@@ -27,15 +27,39 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <TextBox
+        <!--  TextBox with placeholder  -->
+        <Grid
             Grid.Row="2"
             Grid.Column="1"
-            Grid.ColumnSpan="3"
-            Margin="8"
-            HorizontalContentAlignment="Center"
-            FontSize="{StaticResource FontSizeVeryLarge}"
-            IsEnabled="{Binding IsIPBoxEnabled}"
-            Text="{Binding CurrentIP}" />
+            Grid.ColumnSpan="3">
+            <TextBox
+                x:Name="IPBox"
+                Margin="8"
+                HorizontalContentAlignment="Center"
+                FontSize="{StaticResource FontSizeVeryLarge}"
+                IsEnabled="{Binding IsIPBoxEnabled}"
+                Text="{Binding CurrentIP}" />
+            <TextBlock
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="{StaticResource FontSizeLarge}"
+                Foreground="DarkGray"
+                IsHitTestVisible="False"
+                Text="Enter your IP here!">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=IPBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+
+        <!--  Start/Stop button  -->
         <Button
             Grid.Row="3"
             Grid.Column="2"
