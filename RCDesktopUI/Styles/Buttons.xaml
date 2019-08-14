@@ -85,9 +85,6 @@
                         <Trigger Property="IsPressed" Value="True">
                             <Setter TargetName="border" Property="Background" Value="{StaticResource DarkOrangeColorBrush}" />
                         </Trigger>
-                        <Trigger Property="Button.IsDefaulted" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
-                        </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter TargetName="border" Property="Background" Value="{StaticResource MaterialPrimaryLightBrush}" />
                             <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource MaterialPrimaryLightBrush}" />
