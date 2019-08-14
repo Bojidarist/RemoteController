@@ -146,8 +146,8 @@ namespace RCLib.Server
         /// <summary>
         /// A method that tries to find the local IPv4 address of the system
         /// </summary>
-        /// <param name="throwExceptionIfNullOrEmpty">Indicates if exception will be thrown if this method cannot find an IP address</param>
-        public string FindLocalIPv4(bool throwExceptionIfNullOrEmpty = false)
+        /// <param name="throwExceptionIfNullOrWhiteSpace">Indicates if exception will be thrown if this method cannot find an IP address</param>
+        public string FindLocalIPv4(bool throwExceptionIfNullOrWhiteSpace = false)
         {
             string ip = SingletonTCPServer.singleTCPServer.GetIPAddresses().FirstOrDefault().MapToIPv4().ToString();
             if (string.IsNullOrWhiteSpace(ip))
@@ -158,7 +158,7 @@ namespace RCLib.Server
                     ip = this.GetLocalIPv4(NetworkInterfaceType.Ethernet);
                     if (string.IsNullOrWhiteSpace(ip))
                     {
-                        if (throwExceptionIfNullOrEmpty)
+                        if (throwExceptionIfNullOrWhiteSpace)
                         {
                             throw new NullReferenceException("The IP address is not found.");
                         }
