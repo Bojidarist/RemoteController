@@ -45,7 +45,7 @@
                 FontSize="{StaticResource FontSizeLarge}"
                 Foreground="DarkGray"
                 IsHitTestVisible="False"
-                Text="Enter your IP here!">
+                Text="{Binding IPBoxPlaceholderText}">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
                         <Setter Property="Visibility" Value="Collapsed" />

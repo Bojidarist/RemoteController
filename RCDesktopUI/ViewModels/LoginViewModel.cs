@@ -35,6 +35,11 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public string StartServerButtonText { get; set; } = "Start Server";
 
+        /// <summary>
+        /// The placeholder text used by IPBox
+        /// </summary>
+        public string IPBoxPlaceholderText { get; set; } = "Enter your IP here!";
+
         #endregion
 
         #region Commands
