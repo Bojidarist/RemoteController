@@ -1,4 +1,5 @@
-﻿using RCDesktopUI.Server;
+﻿using RCDesktopUI.Properties;
+using RCDesktopUI.Server;
 using RCDesktopUI.ViewModels.Base;
 using RCDesktopUI.Views;
 using RCLib.Server;
@@ -19,7 +20,7 @@ namespace RCDesktopUI.ViewModels
         /// <summary>
         /// The current ip from the singleton <see cref="ServerManager"/>
         /// </summary>
-        public string CurrentIP { get; set; } = SingletonServerManager.SingleServerManager.PrivateIPAddress;
+        public string CurrentIP { get; set; } = Settings.Default.LatestValidIP;
 
         /// <summary>
         /// A boolean that indicates if the program is not currently starting a server
@@ -110,6 +111,10 @@ namespace RCDesktopUI.ViewModels
                             SingletonServerManager.SingleServerManager.StartServer();
                             this.StartServerButtonText = "Stop Server";
                             this.DetectIPButtonVisibility = 0;
+
+                            // Save the latest working ip address
+                            Settings.Default.LatestValidIP = CurrentIP;
+                            Settings.Default.Save();
                             this.IsServerNotStarting = true;
                         }
                         catch (FormatException)
