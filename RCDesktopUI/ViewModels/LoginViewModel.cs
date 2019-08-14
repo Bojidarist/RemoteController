@@ -66,6 +66,11 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public ICommand DetectIPClickedCommand { get; set; }
 
+        /// <summary>
+        /// The command that executes when the ResetLoginSettings button is clicked
+        /// </summary>
+        public ICommand ResetDefaultLoginSettingsCommand { get; set; }
+
         #endregion
 
         #region Constructors
@@ -103,31 +108,34 @@ namespace RCDesktopUI.ViewModels
                     }
                     else
                     {
-                        try
+                        if (!String.IsNullOrWhiteSpace(this.CurrentIP))
                         {
-                            this.IsServerNotStarting = false;
-                            this.IsIPBoxEnabled = false;
-                            SingletonServerManager.SingleServerManager.PrivateIPAddress = this.CurrentIP;
-                            SingletonServerManager.SingleServerManager.StartServer();
-                            this.StartServerButtonText = "Stop Server";
-                            this.DetectIPButtonVisibility = 0;
+                            try
+                            {
+                                this.IsServerNotStarting = false;
+                                this.IsIPBoxEnabled = false;
+                                SingletonServerManager.SingleServerManager.PrivateIPAddress = this.CurrentIP;
+                                SingletonServerManager.SingleServerManager.StartServer();
+                                this.StartServerButtonText = "Stop Server";
+                                this.DetectIPButtonVisibility = 0;
 
-                            // Save the latest working ip address
-                            Settings.Default.LatestValidIP = CurrentIP;
-                            Settings.Default.Save();
-                            this.IsServerNotStarting = true;
-                        }
-                        catch (FormatException)
-                        {
-                            this.CurrentIP = "Invalid IP Address";
-                        }
-                        catch (SocketException)
-                        {
-                            this.CurrentIP = "Invalid IP Address";
-                        }
-                        finally
-                        {
-                            this.InitialChecks();
+                                // Save the latest working ip address
+                                Settings.Default.LatestValidIP = CurrentIP;
+                                Settings.Default.Save();
+                                this.IsServerNotStarting = true;
+                            }
+                            catch (FormatException)
+                            {
+                                this.CurrentIP = "Invalid IP Address";
+                            }
+                            catch (SocketException)
+                            {
+                                this.CurrentIP = "Invalid IP Address";
+                            }
+                            finally
+                            {
+                                this.InitialChecks();
+                            }
                         }
                     }
                 });
@@ -151,6 +159,17 @@ namespace RCDesktopUI.ViewModels
                     {
                         InitialChecks();
                     }
+                });
+            });
+
+            this.ResetDefaultLoginSettingsCommand = new RelayCommand(async () =>
+            {
+                await Task.Run(() =>
+                {
+                    // Reset login settings
+                    Settings.Default.LatestValidIP = "";
+                    Settings.Default.Save();
+                    this.CurrentIP = Settings.Default.LatestValidIP;
                 });
             });
         }

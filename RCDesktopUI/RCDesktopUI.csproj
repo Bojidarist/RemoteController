@@ -70,6 +70,7 @@
     </ApplicationDefinition>
     <Compile Include="SelectedControllerKeys\SelectedNESKeys.cs" />
     <Compile Include="Server\SingletonServerManager.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ValueConverters\IntToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\StaticConverters\GenericKeyNameToKeyCodeFromSelectedNESKeysConverter.cs" />
     <Compile Include="ValueConverters\StaticConverters\KeyboardKeyToKeyCodeConverter.cs" />

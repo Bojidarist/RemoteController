@@ -37,8 +37,10 @@
                 x:Name="IPBox"
                 Margin="8"
                 HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
                 FontSize="{StaticResource FontSizeVeryLarge}"
                 IsEnabled="{Binding IsIPBoxEnabled}"
+                MaxLength="15"
                 Text="{Binding CurrentIP}" />
             <TextBlock
                 HorizontalAlignment="Center"
@@ -58,6 +60,20 @@
                     </Style>
                 </TextBlock.Style>
             </TextBlock>
+            <Button
+                Margin="24"
+                Padding="8"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Command="{Binding ResetDefaultLoginSettingsCommand}"
+                Content="X"
+                Foreground="{StaticResource WhiteColorBrush}"
+                Style="{StaticResource RedCircleButton}"
+                ToolTip="Reset Default IP Address"
+                Visibility="{Binding DetectIPButtonVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
+            </Button>
         </Grid>
 
         <StackPanel
