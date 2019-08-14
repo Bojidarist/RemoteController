@@ -11,6 +11,7 @@
     Height="{Binding WindowHeight}"
     MinWidth="{Binding MinWindowWidth}"
     MinHeight="{Binding MinWindowHeight}"
+    Closing="Window_Closing"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 

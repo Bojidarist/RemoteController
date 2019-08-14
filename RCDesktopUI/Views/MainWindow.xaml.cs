@@ -14,5 +14,14 @@ namespace RCDesktopUI
 
             this.DataContext = new MainWindowViewModel();
         }
+
+        /// <summary>
+        /// This event fires when the main window is closing
+        /// </summary>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // Cleanup
+            Server.SingletonServerManager.SingleServerManager.StopServer();
+        }
     }
 }
