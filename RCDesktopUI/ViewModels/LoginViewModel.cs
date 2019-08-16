@@ -52,6 +52,16 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public string IPBoxPlaceholderText { get; set; } = "Enter your IP here!";
 
+        /// <summary>
+        /// The text that will appear when an error occurs
+        /// </summary>
+        public string ErrorText { get; set; }
+
+        /// <summary>
+        /// The visibility for the ErrorText (0 = Collapsed, 1 = Hidden, 2 = Visible)
+        /// </summary>
+        public int ErrorTextVisibility { get; set; } = 0;
+
         #endregion
 
         #region Commands
@@ -70,6 +80,11 @@ namespace RCDesktopUI.ViewModels
         /// The command that executes when the ResetLoginSettings button is clicked
         /// </summary>
         public ICommand ResetDefaultLoginSettingsCommand { get; set; }
+
+        /// <summary>
+        /// The command that executes when the error text is clicked
+        /// </summary>
+        public ICommand ResetErrorTextCommand { get; set; }
 
         #endregion
 
@@ -123,14 +138,16 @@ namespace RCDesktopUI.ViewModels
                                 Settings.Default.LatestValidIP = CurrentIP;
                                 Settings.Default.Save();
                                 this.IsServerNotStarting = true;
+
+                                this.ErrorMessage("", false);
                             }
                             catch (FormatException)
                             {
-                                this.CurrentIP = "Invalid IP Address";
+                                this.ErrorMessage("Invalid IP Address", true);
                             }
                             catch (SocketException)
                             {
-                                this.CurrentIP = "Invalid IP Address";
+                                this.ErrorMessage("Invalid IP Address", true);
                             }
                             finally
                             {
@@ -153,7 +170,7 @@ namespace RCDesktopUI.ViewModels
                     }
                     catch (NullReferenceException)
                     {
-                        this.CurrentIP = "IP not found";
+                        this.ErrorMessage("IP Not Found", true);
                     }
                     finally
                     {
@@ -170,6 +187,14 @@ namespace RCDesktopUI.ViewModels
                     Settings.Default.LatestValidIP = "";
                     Settings.Default.Save();
                     this.CurrentIP = Settings.Default.LatestValidIP;
+                });
+            });
+
+            this.ResetErrorTextCommand = new RelayCommand(async () =>
+            {
+                await Task.Run(() =>
+                {
+                    this.ErrorMessage("", false);
                 });
             });
         }
@@ -192,6 +217,24 @@ namespace RCDesktopUI.ViewModels
                 this.StartServerButtonText = "Start Server";
                 this.IsServerNotStarting = true;
                 this.DetectIPButtonVisibility = 2;
+            }
+        }
+
+        /// <summary>
+        /// Displays an error message in the login screen
+        /// </summary>
+        /// <param name="errorMessage">The error message</param>
+        /// <param name="isActive">Determines if the error message will be visible</param>
+        private void ErrorMessage(string errorMessage, bool isActive)
+        {
+            this.ErrorText = errorMessage;
+            if (isActive)
+            {
+                this.ErrorTextVisibility = 2;
+            }
+            else
+            {
+                this.ErrorTextVisibility = 0;
             }
         }
 

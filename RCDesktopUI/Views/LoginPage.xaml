@@ -28,6 +28,26 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <Grid
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="3"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom">
+            <TextBlock
+                FontSize="{StaticResource FontSizeBig}"
+                Foreground="{StaticResource PinkColorBrush}"
+                Text="{Binding ErrorText}"
+                Visibility="{Binding ErrorTextVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
+            </TextBlock>
+            <Button
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Command="{Binding ResetErrorTextCommand}"
+                Style="{StaticResource TransparentButton}">
+            </Button>
+        </Grid>
+
         <!--  TextBox with placeholder  -->
         <Grid
             Grid.Row="2"
