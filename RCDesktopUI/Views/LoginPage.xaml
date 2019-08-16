@@ -9,6 +9,7 @@
     Title="LoginPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    FocusVisualStyle="{StaticResource TransparentStyle}"
     KeyboardNavigation.TabNavigation="None"
     mc:Ignorable="d">
 
@@ -36,6 +37,7 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom">
             <TextBlock
+                FocusVisualStyle="{StaticResource TransparentStyle}"
                 FontSize="{StaticResource FontSizeBig}"
                 Foreground="{StaticResource PinkColorBrush}"
                 Text="{Binding ErrorText}"
@@ -45,6 +47,7 @@
                 Background="Transparent"
                 BorderBrush="Transparent"
                 Command="{Binding ResetErrorTextCommand}"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
                 Style="{StaticResource TransparentButton}">
             </Button>
         </Grid>
@@ -59,6 +62,7 @@
                 Margin="8"
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
                 FontSize="{StaticResource FontSizeVeryLarge}"
                 IsEnabled="{Binding IsIPBoxEnabled}"
                 MaxLength="15"
@@ -66,6 +70,7 @@
             <TextBlock
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
                 FontSize="{StaticResource FontSizeLarge}"
                 Foreground="DarkGray"
                 IsHitTestVisible="False"
@@ -90,6 +95,7 @@
                 VerticalContentAlignment="Center"
                 Command="{Binding ResetDefaultLoginSettingsCommand}"
                 Content="X"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
                 Foreground="{StaticResource WhiteColorBrush}"
                 Style="{StaticResource RedCircleButton}"
                 ToolTip="Reset Default IP Address"
@@ -110,6 +116,7 @@
                 Padding="8"
                 Command="{Binding StartServerClickedCommand}"
                 Content="{Binding StartServerButtonText}"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
                 FontSize="{StaticResource FontSizeBig}"
                 Foreground="{StaticResource WhiteColorBrush}"
                 IsEnabled="{Binding IsServerNotStarting}" />
@@ -119,6 +126,7 @@
                 Padding="8"
                 Command="{Binding DetectIPClickedCommand}"
                 Content="{Binding DetectIPButtonText}"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
                 FontSize="{StaticResource FontSizeBig}"
                 Foreground="{StaticResource WhiteColorBrush}"
                 IsEnabled="{Binding IsServerNotStarting}"

@@ -13,6 +13,7 @@
     MinHeight="{Binding MinWindowHeight}"
     Background="{StaticResource MaterialPrimaryMainBrush}"
     Closing="Window_Closing"
+    FocusVisualStyle="{StaticResource TransparentStyle}"
     KeyboardNavigation.TabNavigation="None"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
@@ -22,6 +23,7 @@
         <Frame
             x:Name="MainFrame"
             Content="{Binding CurrentPage, Converter={cnvrt:ApplicationPageConverter}}"
+            FocusVisualStyle="{StaticResource TransparentStyle}"
             NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
