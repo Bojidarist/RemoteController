@@ -34,6 +34,7 @@
             Grid.Row="0"
             Grid.Column="1"
             Grid.ColumnSpan="3"
+            Margin="16"
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom">
             <TextBlock
@@ -44,8 +45,6 @@
                 Visibility="{Binding ErrorTextVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
             </TextBlock>
             <Button
-                Background="Transparent"
-                BorderBrush="Transparent"
                 Command="{Binding ResetErrorTextCommand}"
                 FocusVisualStyle="{StaticResource TransparentStyle}"
                 Style="{StaticResource TransparentButton}">
