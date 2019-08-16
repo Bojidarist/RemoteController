@@ -104,7 +104,7 @@ namespace RCDesktopUI.ViewModels
         #region Methods
 
         /// <summary>
-        /// Method for making all the commands used in the current view model.
+        /// Method for making all the commands used in the current view model
         /// </summary>
         private void MakeCommands()
         {
@@ -114,6 +114,7 @@ namespace RCDesktopUI.ViewModels
                 {
                     if (SingletonServerManager.SingleServerManager.IsServerStarted)
                     {
+                        // If the server is already started then stop it
                         this.IsServerNotStarting = false;
                         SingletonServerManager.SingleServerManager.StopServer();
                         this.StartServerButtonText = "Start Server";
@@ -127,6 +128,7 @@ namespace RCDesktopUI.ViewModels
                         {
                             try
                             {
+                                // If the server is not started then start it
                                 this.IsServerNotStarting = false;
                                 this.IsIPBoxEnabled = false;
                                 SingletonServerManager.SingleServerManager.PrivateIPAddress = this.CurrentIP;
@@ -137,9 +139,10 @@ namespace RCDesktopUI.ViewModels
                                 // Save the latest working ip address
                                 Settings.Default.LatestValidIP = CurrentIP;
                                 Settings.Default.Save();
-                                this.IsServerNotStarting = true;
 
+                                // Remove the error message if there is one
                                 this.ErrorMessage("", false);
+                                this.IsServerNotStarting = true;
                             }
                             catch (FormatException)
                             {
@@ -164,6 +167,7 @@ namespace RCDesktopUI.ViewModels
                 {
                     try
                     {
+                        // Try to find the local IPv4 address. If it cannot be found then display error
                         this.IsServerNotStarting = false;
                         this.CurrentIP = SingletonServerManager.SingleServerManager.FindLocalIPv4(true);
                         this.IsServerNotStarting = true;
@@ -194,6 +198,7 @@ namespace RCDesktopUI.ViewModels
             {
                 await Task.Run(() =>
                 {
+                    // Remove the error message
                     this.ErrorMessage("", false);
                 });
             });
@@ -227,13 +232,16 @@ namespace RCDesktopUI.ViewModels
         /// <param name="isActive">Determines if the error message will be visible</param>
         private void ErrorMessage(string errorMessage, bool isActive)
         {
+            // Set the error message
             this.ErrorText = errorMessage;
             if (isActive)
             {
+                // Make the error message visible
                 this.ErrorTextVisibility = 2;
             }
             else
             {
+                // Collapse the error message
                 this.ErrorTextVisibility = 0;
             }
         }

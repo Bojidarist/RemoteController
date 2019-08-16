@@ -28,6 +28,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <!--  User friendly error message  -->
         <Grid
             Grid.Row="0"
             Grid.Column="1"
