@@ -9,6 +9,7 @@
     Title="LoginPage"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    KeyboardNavigation.TabNavigation="None"
     mc:Ignorable="d">
 
     <Grid>

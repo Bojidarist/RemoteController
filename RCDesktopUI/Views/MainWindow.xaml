@@ -13,6 +13,7 @@
     MinHeight="{Binding MinWindowHeight}"
     Background="{StaticResource MaterialPrimaryMainBrush}"
     Closing="Window_Closing"
+    KeyboardNavigation.TabNavigation="None"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
 
