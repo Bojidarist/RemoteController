@@ -1,4 +1,5 @@
-﻿using RCDesktopUI.ViewModels;
+﻿using RCDesktopUI.Helpers;
+using RCDesktopUI.ViewModels;
 using System.Windows;
 
 namespace RCDesktopUI
@@ -11,6 +12,9 @@ namespace RCDesktopUI
         public MainWindow()
         {
             InitializeComponent();
+
+            // When the app is minimized move it to system tray
+            MinimizeToTrayHelper.Enable(this);
 
             this.DataContext = new MainWindowViewModel();
         }
