@@ -19,7 +19,7 @@ namespace RCDesktopUI
         /// <param name="e">Startup arguments</param>
         protected override void OnStartup(StartupEventArgs e)
         {
-            // Close this instance another instance of the app is running
+            // Close this instance if another instance of the app is running
             SingleInstaceCheck();
 
             // Log all exceptions
@@ -29,7 +29,7 @@ namespace RCDesktopUI
         }
 
         /// <summary>
-        /// Close this instance another instance of the app is running
+        /// Close this instance if another instance of the app is running
         /// </summary>
         private void SingleInstaceCheck()
         {
