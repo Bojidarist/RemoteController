@@ -632,7 +632,7 @@
                         x:Name="border"
                         Background="{StaticResource MaterialPrimaryDarkBrush}"
                         BorderBrush="{StaticResource MaterialPrimaryLightBrush}"
-                        BorderThickness="1"
+                        BorderThickness="0.5"
                         CornerRadius="{Binding ActualHeight, RelativeSource={RelativeSource Self}}"
                         SnapsToDevicePixels="True">
                         <ContentPresenter

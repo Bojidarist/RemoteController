@@ -22,6 +22,8 @@ namespace RCDesktopUI.ValueConverters
                     return new LoginPage();
                 case ApplicationPage.ControlsConfig:
                     return new ControlsConfigPage();
+                case ApplicationPage.NESControllerPage:
+                    return new NESControllerPage();
                 default:
                     // If a unknown page is requested stop the app and signal a breakpoint for debugging
                     Debugger.Break();

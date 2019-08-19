@@ -81,11 +81,15 @@
     <Compile Include="ViewModels\Base\RelayCommand.cs" />
     <Compile Include="ViewModels\ControlsConfigViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\NESControllerViewModel.cs" />
     <Compile Include="Views\ControlsConfigPage.xaml.cs">
       <DependentUpon>ControlsConfigPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NESControllerPage.xaml.cs">
+      <DependentUpon>NESControllerPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NonePage.xaml.cs">
       <DependentUpon>NonePage.xaml</DependentUpon>
@@ -138,6 +142,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\NESControllerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\NonePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

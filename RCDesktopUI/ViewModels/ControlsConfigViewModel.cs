@@ -1,4 +1,5 @@
-﻿using RCDesktopUI.ViewModels.Base;
+﻿using RCDesktopUI.Models.DataModels;
+using RCDesktopUI.ViewModels.Base;
 using RCDesktopUI.Views;
 
 namespace RCDesktopUI.ViewModels
@@ -8,6 +9,11 @@ namespace RCDesktopUI.ViewModels
     /// </summary>
     public class ControlsConfigViewModel : BaseViewModel
     {
+        /// <summary>
+        /// The current selected controller
+        /// </summary>
+        public ApplicationPage CurrentController { get; set; } = ApplicationPage.NESControllerPage;
+
         /// <summary>
         /// Default constructor
         /// </summary>

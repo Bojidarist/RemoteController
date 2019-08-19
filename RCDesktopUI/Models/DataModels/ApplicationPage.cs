@@ -15,6 +15,11 @@
         /// <summary>
         /// The page for changing controls
         /// </summary>
-        ControlsConfig = 2
+        ControlsConfig = 2,
+
+        /// <summary>
+        /// The page with NES controls
+        /// </summary>
+        NESControllerPage = 3
     }
 }
