@@ -1,7 +1,6 @@
 ﻿using AutoSharp;
 using RCDesktopUI.Properties;
 using RCDesktopUI.SelectedControllerKeys;
-using System;
 
 namespace RCDesktopUI.Helpers
 {

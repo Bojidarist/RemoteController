@@ -1,11 +1,9 @@
-﻿using AutoSharp;
-using RCDesktopUI.Helpers;
+﻿using RCDesktopUI.Helpers;
 using RCDesktopUI.Properties;
 using RCDesktopUI.SelectedControllerKeys;
 using RCDesktopUI.ViewModels.Base;
 using RCDesktopUI.Views;
 using RCLib.Models;
-using System;
 using System.Collections.ObjectModel;
 
 namespace RCDesktopUI.ViewModels
