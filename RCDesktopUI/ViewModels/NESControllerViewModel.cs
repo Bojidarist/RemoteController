@@ -1,8 +1,11 @@
-﻿using RCDesktopUI.Helpers;
+﻿using AutoSharp;
+using RCDesktopUI.Helpers;
+using RCDesktopUI.Properties;
 using RCDesktopUI.SelectedControllerKeys;
 using RCDesktopUI.ViewModels.Base;
 using RCDesktopUI.Views;
 using RCLib.Models;
+using System;
 using System.Collections.ObjectModel;
 
 namespace RCDesktopUI.ViewModels
@@ -43,6 +46,8 @@ namespace RCDesktopUI.ViewModels
             {
                 mSelectedKeyLeft = value;
                 SelectedNESKeys.LEFTARROW = value.ToKeyboardKeyCode();
+                Settings.Default.NES_KEY_LEFT = value;
+                Settings.Default.Save();
             }
         }
 
@@ -56,6 +61,8 @@ namespace RCDesktopUI.ViewModels
             {
                 mSelectedKeyRight = value;
                 SelectedNESKeys.RIGHTARROW = value.ToKeyboardKeyCode();
+                Settings.Default.NES_KEY_RIGHT = value;
+                Settings.Default.Save();
             }
         }
 
@@ -69,6 +76,8 @@ namespace RCDesktopUI.ViewModels
             {
                 mSelectedKeyUp = value;
                 SelectedNESKeys.UPARROW = value.ToKeyboardKeyCode();
+                Settings.Default.NES_KEY_UP = value;
+                Settings.Default.Save();
             }
         }
 
@@ -82,6 +91,8 @@ namespace RCDesktopUI.ViewModels
             {
                 mSelectedKeyDown = value;
                 SelectedNESKeys.DOWNARROW = value.ToKeyboardKeyCode();
+                Settings.Default.NES_KEY_DOWN = value;
+                Settings.Default.Save();
             }
         }
 
@@ -95,6 +106,8 @@ namespace RCDesktopUI.ViewModels
             {
                 mSelectedKeySelect = value;
                 SelectedNESKeys.SELECT = value.ToKeyboardKeyCode();
+                Settings.Default.NES_KEY_SELECT = value;
+                Settings.Default.Save();
             }
         }
 
@@ -108,6 +121,8 @@ namespace RCDesktopUI.ViewModels
             {
                 mSelectedKeyStart = value;
                 SelectedNESKeys.START = value.ToKeyboardKeyCode();
+                Settings.Default.NES_KEY_START = value;
+                Settings.Default.Save();
             }
         }
 
@@ -121,6 +136,8 @@ namespace RCDesktopUI.ViewModels
             {
                 mSelectedKeyA = value;
                 SelectedNESKeys.A = value.ToKeyboardKeyCode();
+                Settings.Default.NES_KEY_A = value;
+                Settings.Default.Save();
             }
         }
 
@@ -134,6 +151,8 @@ namespace RCDesktopUI.ViewModels
             {
                 mSelectedKeyB = value;
                 SelectedNESKeys.B = value.ToKeyboardKeyCode();
+                Settings.Default.NES_KEY_B = value;
+                Settings.Default.Save();
             }
         }
 
@@ -149,6 +168,57 @@ namespace RCDesktopUI.ViewModels
         {
             // Load data
             this.KeyboardKeys = typeof(KeyboardKeysEnum).ToObservableStringCollection();
+            this.LoadSettings();
+        }
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Load the keys from settings
+        /// </summary>
+        private void LoadSettings()
+        {
+            if (!string.IsNullOrWhiteSpace(Settings.Default.NES_KEY_A))
+            {
+                this.SelectedKeyA = Settings.Default.NES_KEY_A;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Settings.Default.NES_KEY_B))
+            {
+                this.SelectedKeyB = Settings.Default.NES_KEY_B;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Settings.Default.NES_KEY_LEFT))
+            {
+                this.SelectedKeyLeft = Settings.Default.NES_KEY_LEFT;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Settings.Default.NES_KEY_RIGHT))
+            {
+                this.SelectedKeyRight = Settings.Default.NES_KEY_RIGHT;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Settings.Default.NES_KEY_UP))
+            {
+                this.SelectedKeyUp = Settings.Default.NES_KEY_UP;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Settings.Default.NES_KEY_DOWN))
+            {
+                this.SelectedKeyDown = Settings.Default.NES_KEY_DOWN;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Settings.Default.NES_KEY_SELECT))
+            {
+                this.SelectedKeySelect = Settings.Default.NES_KEY_SELECT;
+            }
+
+            if (!string.IsNullOrWhiteSpace(Settings.Default.NES_KEY_START))
+            {
+                this.SelectedKeyStart = Settings.Default.NES_KEY_START;
+            }
         }
 
         #endregion

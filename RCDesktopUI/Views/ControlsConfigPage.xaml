@@ -20,5 +20,65 @@
             Content="{Binding CurrentController, Converter={cnvrt:ApplicationPageConverter}}"
             FocusVisualStyle="{StaticResource TransparentStyle}"
             NavigationUIVisibility="Hidden" />
+
+        <!--  The button for resetting the default settings for the current controller  -->
+        <Button
+            Margin="24"
+            Padding="8"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Command="{Binding ResetControllerSettingsCommand}"
+            Content="X"
+            FocusVisualStyle="{StaticResource TransparentStyle}"
+            Foreground="{StaticResource WhiteColorBrush}"
+            Style="{StaticResource RedCircleButton}"
+            ToolTip="Reset Default Mapped Keys">
+        </Button>
+
+        <!--  Alert  -->
+        <Border Visibility="{Binding AlertVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.RowSpan="3"
+                    Grid.ColumnSpan="3"
+                    Background="{StaticResource LightBlueColorBrush}"
+                    Opacity="0.1">
+                    <Border.Effect>
+                        <BlurEffect Radius="25" />
+                    </Border.Effect>
+                </Border>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Background="{StaticResource DarkBlueColorBrush}"
+                    Opacity="0.55">
+                </Border>
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="{StaticResource FontSizeBig}"
+                    Foreground="{StaticResource WhiteColorBrush}"
+                    Text="Settings Cleared" />
+                <Button
+                    Grid.RowSpan="3"
+                    Grid.ColumnSpan="3"
+                    Command="{Binding RemoveAlertCommand}"
+                    Style="{StaticResource TransparentButton}" />
+            </Grid>
+        </Border>
     </Grid>
 </Page>

@@ -72,6 +72,7 @@
     </ApplicationDefinition>
     <Compile Include="Helpers\KeyboardKeysHelper.cs" />
     <Compile Include="Helpers\MinimizeToTrayHelper.cs" />
+    <Compile Include="Helpers\NESHelpers.cs" />
     <Compile Include="SelectedControllerKeys\SelectedNESKeys.cs" />
     <Compile Include="Server\SingletonServerManager.cs" />
     <Compile Include="Settings.cs" />

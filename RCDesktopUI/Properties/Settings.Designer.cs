@@ -34,5 +34,101 @@ namespace RCDesktopUI.Properties {
                 this["LatestValidIP"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NES_KEY_A {
+            get {
+                return ((string)(this["NES_KEY_A"]));
+            }
+            set {
+                this["NES_KEY_A"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NES_KEY_B {
+            get {
+                return ((string)(this["NES_KEY_B"]));
+            }
+            set {
+                this["NES_KEY_B"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NES_KEY_LEFT {
+            get {
+                return ((string)(this["NES_KEY_LEFT"]));
+            }
+            set {
+                this["NES_KEY_LEFT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NES_KEY_RIGHT {
+            get {
+                return ((string)(this["NES_KEY_RIGHT"]));
+            }
+            set {
+                this["NES_KEY_RIGHT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NES_KEY_UP {
+            get {
+                return ((string)(this["NES_KEY_UP"]));
+            }
+            set {
+                this["NES_KEY_UP"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NES_KEY_DOWN {
+            get {
+                return ((string)(this["NES_KEY_DOWN"]));
+            }
+            set {
+                this["NES_KEY_DOWN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NES_KEY_SELECT {
+            get {
+                return ((string)(this["NES_KEY_SELECT"]));
+            }
+            set {
+                this["NES_KEY_SELECT"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string NES_KEY_START {
+            get {
+                return ((string)(this["NES_KEY_START"]));
+            }
+            set {
+                this["NES_KEY_START"] = value;
+            }
+        }
     }
 }
