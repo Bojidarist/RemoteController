@@ -32,7 +32,7 @@ namespace RCDesktopUI.ValueConverters
                 case GenericKeyNameEnum.B:
                     return SelectedNESKeys.B;
                 default:
-                    throw new ArgumentException("Not a valid key for convertion!");
+                    throw new ArgumentException("Not a valid key for conversion!");
             }
         }
     }

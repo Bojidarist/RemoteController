@@ -66,7 +66,7 @@ namespace RCDesktopUI.ValueConverters
                 case KeyboardKeysEnum.Z:
                     return KeyboardKeyCodes.VK_KEY_Z;
                 default:
-                    throw new ArgumentException("Not a valid key for convertion!");
+                    throw new ArgumentException("Not a valid key for conversion!");
             }
         }
     }

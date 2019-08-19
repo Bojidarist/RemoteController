@@ -57,6 +57,7 @@
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
+                    SelectedItem="{Binding SelectedKeyUp}"
                     Style="{StaticResource CircleComboBox}">
                 </ComboBox>
             </StackPanel>
@@ -84,6 +85,7 @@
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
+                    SelectedItem="{Binding SelectedKeyDown}"
                     Style="{StaticResource CircleComboBox}">
                 </ComboBox>
             </StackPanel>
@@ -111,6 +113,7 @@
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
+                    SelectedItem="{Binding SelectedKeyLeft}"
                     Style="{StaticResource CircleComboBox}">
                 </ComboBox>
             </StackPanel>
@@ -138,6 +141,7 @@
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
+                    SelectedItem="{Binding SelectedKeyRight}"
                     Style="{StaticResource CircleComboBox}">
                 </ComboBox>
             </StackPanel>
@@ -175,6 +179,7 @@
                         HorizontalAlignment="Center"
                         FocusVisualStyle="{StaticResource TransparentStyle}"
                         ItemsSource="{Binding KeyboardKeys}"
+                        SelectedItem="{Binding SelectedKeySelect}"
                         Style="{StaticResource CircleComboBox}">
                     </ComboBox>
                 </StackPanel>
@@ -201,6 +206,7 @@
                         HorizontalAlignment="Center"
                         FocusVisualStyle="{StaticResource TransparentStyle}"
                         ItemsSource="{Binding KeyboardKeys}"
+                        SelectedItem="{Binding SelectedKeyStart}"
                         Style="{StaticResource CircleComboBox}">
                     </ComboBox>
                 </StackPanel>
@@ -229,6 +235,7 @@
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
+                    SelectedItem="{Binding SelectedKeyB}"
                     Style="{StaticResource CircleComboBox}">
                 </ComboBox>
             </StackPanel>
@@ -256,6 +263,7 @@
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
+                    SelectedItem="{Binding SelectedKeyA}"
                     Style="{StaticResource CircleComboBox}">
                 </ComboBox>
             </StackPanel>
