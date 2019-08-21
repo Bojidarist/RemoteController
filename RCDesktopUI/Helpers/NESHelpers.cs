@@ -1,11 +1,17 @@
 ﻿using AutoSharp;
 using RCDesktopUI.Properties;
 using RCDesktopUI.SelectedControllerKeys;
+using System;
 
 namespace RCDesktopUI.Helpers
 {
     public static class NESHelpers
     {
+        /// <summary>
+        /// Event that fires when <see cref="ResetNESKeySettings"/> is called
+        /// </summary>
+        public static event EventHandler<string> OnNESSettingsReset;
+
         /// <summary>
         /// Reset the key and <see cref="SelectedNESKeys"/> settings
         /// </summary>
@@ -36,6 +42,7 @@ namespace RCDesktopUI.Helpers
             SelectedNESKeys.START = KeyboardKeyCodes.VK__none_;
 
             Settings.Default.Save();
+            OnNESSettingsReset?.Invoke(null, "RESET!");
         }
     }
 }

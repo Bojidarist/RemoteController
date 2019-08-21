@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helpers\KeyboardHelpers.cs" />
     <Compile Include="Helpers\KeyboardKeysHelper.cs" />
     <Compile Include="Helpers\MinimizeToTrayHelper.cs" />
     <Compile Include="Helpers\NESHelpers.cs" />

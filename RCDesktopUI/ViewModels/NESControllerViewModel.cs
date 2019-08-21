@@ -3,7 +3,6 @@ using RCDesktopUI.Properties;
 using RCDesktopUI.SelectedControllerKeys;
 using RCDesktopUI.ViewModels.Base;
 using RCDesktopUI.Views;
-using RCLib.Models;
 using System.Collections.ObjectModel;
 
 namespace RCDesktopUI.ViewModels
@@ -32,7 +31,7 @@ namespace RCDesktopUI.ViewModels
         /// <summary>
         /// A list of keys
         /// </summary>
-        public ObservableCollection<string> KeyboardKeys { get; set; }
+        public ObservableCollection<string> KeyboardKeys { get { return KeyboardHelpers.KeyboardKeys; } }
 
         /// <summary>
         /// The selected key for the Left button
@@ -43,7 +42,14 @@ namespace RCDesktopUI.ViewModels
             set
             {
                 mSelectedKeyLeft = value;
-                SelectedNESKeys.LEFTARROW = value.ToKeyboardKeyCode();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SelectedNESKeys.LEFTARROW = value.ToKeyboardKeyCode();
+                }
+                else
+                {
+                    SelectedNESKeys.LEFTARROW = AutoSharp.KeyboardKeyCodes.VK__none_;
+                }
                 Settings.Default.NES_KEY_LEFT = value;
                 Settings.Default.Save();
             }
@@ -58,7 +64,14 @@ namespace RCDesktopUI.ViewModels
             set
             {
                 mSelectedKeyRight = value;
-                SelectedNESKeys.RIGHTARROW = value.ToKeyboardKeyCode();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SelectedNESKeys.RIGHTARROW = value.ToKeyboardKeyCode();
+                }
+                else
+                {
+                    SelectedNESKeys.RIGHTARROW = AutoSharp.KeyboardKeyCodes.VK__none_;
+                }
                 Settings.Default.NES_KEY_RIGHT = value;
                 Settings.Default.Save();
             }
@@ -73,7 +86,14 @@ namespace RCDesktopUI.ViewModels
             set
             {
                 mSelectedKeyUp = value;
-                SelectedNESKeys.UPARROW = value.ToKeyboardKeyCode();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SelectedNESKeys.UPARROW = value.ToKeyboardKeyCode();
+                }
+                else
+                {
+                    SelectedNESKeys.UPARROW = AutoSharp.KeyboardKeyCodes.VK__none_;
+                }
                 Settings.Default.NES_KEY_UP = value;
                 Settings.Default.Save();
             }
@@ -88,7 +108,14 @@ namespace RCDesktopUI.ViewModels
             set
             {
                 mSelectedKeyDown = value;
-                SelectedNESKeys.DOWNARROW = value.ToKeyboardKeyCode();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SelectedNESKeys.DOWNARROW = value.ToKeyboardKeyCode();
+                }
+                else
+                {
+                    SelectedNESKeys.DOWNARROW = AutoSharp.KeyboardKeyCodes.VK__none_;
+                }
                 Settings.Default.NES_KEY_DOWN = value;
                 Settings.Default.Save();
             }
@@ -103,7 +130,14 @@ namespace RCDesktopUI.ViewModels
             set
             {
                 mSelectedKeySelect = value;
-                SelectedNESKeys.SELECT = value.ToKeyboardKeyCode();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SelectedNESKeys.SELECT = value.ToKeyboardKeyCode();
+                }
+                else
+                {
+                    SelectedNESKeys.SELECT = AutoSharp.KeyboardKeyCodes.VK__none_;
+                }
                 Settings.Default.NES_KEY_SELECT = value;
                 Settings.Default.Save();
             }
@@ -118,7 +152,14 @@ namespace RCDesktopUI.ViewModels
             set
             {
                 mSelectedKeyStart = value;
-                SelectedNESKeys.START = value.ToKeyboardKeyCode();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SelectedNESKeys.START = value.ToKeyboardKeyCode();
+                }
+                else
+                {
+                    SelectedNESKeys.START = AutoSharp.KeyboardKeyCodes.VK__none_;
+                }
                 Settings.Default.NES_KEY_START = value;
                 Settings.Default.Save();
             }
@@ -133,7 +174,14 @@ namespace RCDesktopUI.ViewModels
             set
             {
                 mSelectedKeyA = value;
-                SelectedNESKeys.A = value.ToKeyboardKeyCode();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SelectedNESKeys.A = value.ToKeyboardKeyCode();
+                }
+                else
+                {
+                    SelectedNESKeys.A = AutoSharp.KeyboardKeyCodes.VK__none_;
+                }
                 Settings.Default.NES_KEY_A = value;
                 Settings.Default.Save();
             }
@@ -148,12 +196,18 @@ namespace RCDesktopUI.ViewModels
             set
             {
                 mSelectedKeyB = value;
-                SelectedNESKeys.B = value.ToKeyboardKeyCode();
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    SelectedNESKeys.B = value.ToKeyboardKeyCode();
+                }
+                else
+                {
+                    SelectedNESKeys.B = AutoSharp.KeyboardKeyCodes.VK__none_;
+                }
                 Settings.Default.NES_KEY_B = value;
                 Settings.Default.Save();
             }
         }
-
 
         #endregion
 
@@ -164,8 +218,6 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public NESControllerViewModel()
         {
-            // Load data
-            this.KeyboardKeys = typeof(KeyboardKeysEnum).ToObservableStringCollection();
             this.LoadSettings();
         }
 

@@ -10,6 +10,7 @@
     d:DesignWidth="800"
     FocusVisualStyle="{StaticResource TransparentStyle}"
     KeyboardNavigation.TabNavigation="None"
+    Unloaded="Page_Unloaded"
     mc:Ignorable="d">
 
     <Grid>
@@ -54,6 +55,7 @@
                     Foreground="{StaticResource LightGrayColorBrush}"
                     Text="Up" />
                 <ComboBox
+                    Name="UpButtonComboBox"
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
@@ -82,6 +84,7 @@
                     Foreground="{StaticResource LightGrayColorBrush}"
                     Text="Down" />
                 <ComboBox
+                    Name="DownButtonComboBox"
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
@@ -110,6 +113,7 @@
                     Foreground="{StaticResource LightGrayColorBrush}"
                     Text="Left" />
                 <ComboBox
+                    Name="LeftButtonComboBox"
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
@@ -138,6 +142,7 @@
                     Foreground="{StaticResource LightGrayColorBrush}"
                     Text="Right" />
                 <ComboBox
+                    Name="RightButtonComboBox"
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
@@ -176,6 +181,7 @@
                         Foreground="{StaticResource LightGrayColorBrush}"
                         Text="Select" />
                     <ComboBox
+                        Name="SelectButtonComboBox"
                         HorizontalAlignment="Center"
                         FocusVisualStyle="{StaticResource TransparentStyle}"
                         ItemsSource="{Binding KeyboardKeys}"
@@ -203,6 +209,7 @@
                         Foreground="{StaticResource LightGrayColorBrush}"
                         Text="Start" />
                     <ComboBox
+                        Name="StartButtonComboBox"
                         HorizontalAlignment="Center"
                         FocusVisualStyle="{StaticResource TransparentStyle}"
                         ItemsSource="{Binding KeyboardKeys}"
@@ -232,6 +239,7 @@
                     Foreground="{StaticResource WhiteColorBrush}"
                     Text="B" />
                 <ComboBox
+                    Name="BButtonComboBox"
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
@@ -260,6 +268,7 @@
                     Foreground="{StaticResource WhiteColorBrush}"
                     Text="A" />
                 <ComboBox
+                    Name="AButtonComboBox"
                     HorizontalAlignment="Center"
                     FocusVisualStyle="{StaticResource TransparentStyle}"
                     ItemsSource="{Binding KeyboardKeys}"
