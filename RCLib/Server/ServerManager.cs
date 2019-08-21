@@ -174,7 +174,7 @@ namespace RCLib.Server
         }
 
         /// <summary>
-        /// Private helper method to easly set up event listeners
+        /// Private helper method to easily set up event listeners
         /// </summary>
         private void SetUpEventListeners()
         {

@@ -1,6 +1,8 @@
 ﻿using AutoSharp;
 using RCDesktopUI.Properties;
 using RCDesktopUI.SelectedControllerKeys;
+using RCDesktopUI.ValueConverters;
+using RCLib.Models;
 using System;
 
 namespace RCDesktopUI.Helpers
@@ -43,6 +45,19 @@ namespace RCDesktopUI.Helpers
 
             Settings.Default.Save();
             OnNESSettingsReset?.Invoke(null, "RESET!");
+        }
+
+        /// <summary>
+        /// Handles NES key event
+        /// </summary>
+        /// <param name="key">The button pressed</param>
+        /// <param name="state">The state of the button</param>
+        public static void NESKeyEvent(GenericKeyNameEnum key, ConsoleKeyStateEnum state)
+        {
+            var kbKey = GenericKeyNameToKeyCodeFromSelectedNESKeysConverter.Convert(key);
+            var kbState = ConsoleKeyStateEnumToKeyboardEventFlagConverter.Convert(state);
+
+            AutoSharpUI.KeyboardEvent(kbKey, 0, kbState);
         }
     }
 }

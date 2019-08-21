@@ -9,6 +9,11 @@ namespace RCDesktopUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// This will listen for ServerDataReceived event
+        /// </summary>
+        private ButtonRecievedHandler BRH { get; set; } = new ButtonRecievedHandler(true);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -26,6 +31,7 @@ namespace RCDesktopUI
         {
             // Cleanup
             Server.SingletonServerManager.SingleServerManager.StopServer();
+            BRH.UnsubscribeFromServerDataReceived();
         }
     }
 }
