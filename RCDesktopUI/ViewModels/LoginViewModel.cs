@@ -53,14 +53,19 @@ namespace RCDesktopUI.ViewModels
         public string IPBoxPlaceholderText { get; set; } = "Enter your IP here!";
 
         /// <summary>
-        /// The text that will appear when an error occurs
+        /// The text that will appear when info occurs
         /// </summary>
-        public string ErrorText { get; set; }
+        public string InfoText { get; set; }
 
         /// <summary>
-        /// The visibility for the ErrorText (0 = Collapsed, 1 = Hidden, 2 = Visible)
+        /// The visibility for the InfoText (0 = Collapsed, 1 = Hidden, 2 = Visible)
         /// </summary>
-        public int ErrorTextVisibility { get; set; } = 0;
+        public int InfoTextVisibility { get; set; } = 0;
+
+        /// <summary>
+        /// The foreground color for InfoText
+        /// </summary>
+        public string InfoTextForegroundColorRGB { get; set; } = "ff1744";
 
         #endregion
 
@@ -82,9 +87,9 @@ namespace RCDesktopUI.ViewModels
         public ICommand ResetDefaultLoginSettingsCommand { get; set; }
 
         /// <summary>
-        /// The command that executes when the error text is clicked
+        /// The command that executes when the info text is clicked
         /// </summary>
-        public ICommand ResetErrorTextCommand { get; set; }
+        public ICommand ResetInfoTextCommand { get; set; }
 
         #endregion
 
@@ -119,6 +124,7 @@ namespace RCDesktopUI.ViewModels
                         SingletonServerManager.SingleServerManager.StopServer();
                         this.StartServerButtonText = "Start Server";
                         this.DetectIPButtonVisibility = 2;
+                        this.InfoMessage("Waiting For Connection", false, "0288d1");
                         this.IsServerNotStarting = true;
                         this.IsIPBoxEnabled = true;
                     }
@@ -140,17 +146,17 @@ namespace RCDesktopUI.ViewModels
                                 Settings.Default.LatestValidIP = CurrentIP;
                                 Settings.Default.Save();
 
-                                // Remove the error message if there is one
-                                this.ErrorMessage("", false);
+                                // Remove the info message if there is one
+                                this.InfoMessage("Waiting For Connection", true, "0288d1");
                                 this.IsServerNotStarting = true;
                             }
                             catch (FormatException)
                             {
-                                this.ErrorMessage("Invalid IP Address", true);
+                                this.InfoMessage("Invalid IP Address", true, "ff1744");
                             }
                             catch (SocketException)
                             {
-                                this.ErrorMessage("Invalid IP Address", true);
+                                this.InfoMessage("Invalid IP Address", true, "ff1744");
                             }
                             finally
                             {
@@ -174,7 +180,7 @@ namespace RCDesktopUI.ViewModels
                     }
                     catch (NullReferenceException)
                     {
-                        this.ErrorMessage("IP Not Found", true);
+                        this.InfoMessage("IP Not Found", true, "ff1744");
                     }
                     finally
                     {
@@ -194,12 +200,12 @@ namespace RCDesktopUI.ViewModels
                 });
             });
 
-            this.ResetErrorTextCommand = new RelayCommand(async () =>
+            this.ResetInfoTextCommand = new RelayCommand(async () =>
             {
                 await Task.Run(() =>
                 {
-                    // Remove the error message
-                    this.ErrorMessage("", false);
+                    // Remove the info message
+                    this.InfoMessage("", false, "ff1744");
                 });
             });
         }
@@ -226,23 +232,26 @@ namespace RCDesktopUI.ViewModels
         }
 
         /// <summary>
-        /// Displays an error message in the login screen
+        /// Displays an info message in the login screen
         /// </summary>
-        /// <param name="errorMessage">The error message</param>
-        /// <param name="isActive">Determines if the error message will be visible</param>
-        private void ErrorMessage(string errorMessage, bool isActive)
+        /// <param name="infoMessage">The info message</param>
+        /// <param name="messageColor">The color of the message in hex</param>
+        /// <param name="isActive">Determines if the info message will be visible</param>
+        private void InfoMessage(string infoMessage, bool isActive, string messageColor)
         {
-            // Set the error message
-            this.ErrorText = errorMessage;
+            // Set the info message
+            this.InfoText = infoMessage;
             if (isActive)
             {
-                // Make the error message visible
-                this.ErrorTextVisibility = 2;
+                // Make the info message visible
+                this.InfoTextVisibility = 2;
+                this.InfoTextForegroundColorRGB = messageColor;
             }
             else
             {
-                // Collapse the error message
-                this.ErrorTextVisibility = 0;
+                // Collapse the info message
+                this.InfoTextVisibility = 0;
+                this.InfoTextForegroundColorRGB = messageColor;
             }
         }
 

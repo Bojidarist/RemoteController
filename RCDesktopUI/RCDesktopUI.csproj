@@ -78,6 +78,7 @@
     <Compile Include="SelectedControllerKeys\SelectedNESKeys.cs" />
     <Compile Include="Server\SingletonServerManager.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ValueConverters\StringRGBToBrushConverter.cs" />
     <Compile Include="ValueConverters\IntToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\StaticConverters\ConsoleKeyStateEnumToKeyboardEventFlagConverter.cs" />
     <Compile Include="ValueConverters\StaticConverters\GenericKeyNameToKeyCodeFromSelectedNESKeysConverter.cs" />

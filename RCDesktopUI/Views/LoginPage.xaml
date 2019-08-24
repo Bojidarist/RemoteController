@@ -29,7 +29,7 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <!--  User friendly error message  -->
+        <!--  User friendly info message  -->
         <Grid
             Grid.Row="0"
             Grid.Column="1"
@@ -40,12 +40,12 @@
             <TextBlock
                 FocusVisualStyle="{StaticResource TransparentStyle}"
                 FontSize="{StaticResource FontSizeBig}"
-                Foreground="{StaticResource PinkColorBrush}"
-                Text="{Binding ErrorText}"
-                Visibility="{Binding ErrorTextVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
+                Foreground="{Binding InfoTextForegroundColorRGB, Converter={cnvrt:StringRGBToBrushConverter}}"
+                Text="{Binding InfoText}"
+                Visibility="{Binding InfoTextVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
             </TextBlock>
             <Button
-                Command="{Binding ResetErrorTextCommand}"
+                Command="{Binding ResetInfoTextCommand}"
                 FocusVisualStyle="{StaticResource TransparentStyle}"
                 Style="{StaticResource TransparentButton}">
             </Button>
