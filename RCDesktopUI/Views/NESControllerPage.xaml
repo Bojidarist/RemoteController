@@ -13,163 +13,47 @@
     Unloaded="Page_Unloaded"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.15*" />
-            <ColumnDefinition Width="0.7*" />
-            <ColumnDefinition Width="0.7*" />
-            <ColumnDefinition Width="0.7*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <!--  The UP button  -->
-        <Button
-            Grid.Row="2"
-            Grid.Column="2"
-            FocusVisualStyle="{StaticResource TransparentStyle}"
-            FontSize="{StaticResource FontSizeBig}"
-            Foreground="{StaticResource WhiteColorBrush}"
-            Style="{StaticResource DarkSquareButton}">
-
-            <StackPanel>
-                <TextBlock
-                    Margin="6"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    FontSize="{StaticResource FontSizeSmall}"
-                    Foreground="{StaticResource LightGrayColorBrush}"
-                    Text="Up" />
-                <ComboBox
-                    Name="UpButtonComboBox"
-                    HorizontalAlignment="Center"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    ItemsSource="{Binding KeyboardKeys}"
-                    SelectedItem="{Binding SelectedKeyUp}"
-                    Style="{StaticResource CircleComboBox}">
-                </ComboBox>
-            </StackPanel>
-        </Button>
-
-        <!--  The Down button  -->
-        <Button
-            Grid.Row="4"
-            Grid.Column="2"
-            FocusVisualStyle="{StaticResource TransparentStyle}"
-            FontSize="{StaticResource FontSizeBig}"
-            Foreground="{StaticResource WhiteColorBrush}"
-            Style="{StaticResource DarkSquareButton}">
-
-            <StackPanel>
-                <TextBlock
-                    Margin="6"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    FontSize="{StaticResource FontSizeSmall}"
-                    Foreground="{StaticResource LightGrayColorBrush}"
-                    Text="Down" />
-                <ComboBox
-                    Name="DownButtonComboBox"
-                    HorizontalAlignment="Center"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    ItemsSource="{Binding KeyboardKeys}"
-                    SelectedItem="{Binding SelectedKeyDown}"
-                    Style="{StaticResource CircleComboBox}">
-                </ComboBox>
-            </StackPanel>
-        </Button>
-
-        <!--  The Left button  -->
-        <Button
-            Grid.Row="3"
-            Grid.Column="1"
-            FocusVisualStyle="{StaticResource TransparentStyle}"
-            FontSize="{StaticResource FontSizeBig}"
-            Foreground="{StaticResource WhiteColorBrush}"
-            Style="{StaticResource DarkSquareButton}">
-
-            <StackPanel>
-                <TextBlock
-                    Margin="6"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    FontSize="{StaticResource FontSizeSmall}"
-                    Foreground="{StaticResource LightGrayColorBrush}"
-                    Text="Left" />
-                <ComboBox
-                    Name="LeftButtonComboBox"
-                    HorizontalAlignment="Center"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    ItemsSource="{Binding KeyboardKeys}"
-                    SelectedItem="{Binding SelectedKeyLeft}"
-                    Style="{StaticResource CircleComboBox}">
-                </ComboBox>
-            </StackPanel>
-        </Button>
-
-        <!--  The Right button  -->
-        <Button
-            Grid.Row="3"
-            Grid.Column="3"
-            FocusVisualStyle="{StaticResource TransparentStyle}"
-            FontSize="{StaticResource FontSizeBig}"
-            Foreground="{StaticResource WhiteColorBrush}"
-            Style="{StaticResource DarkSquareButton}">
-
-            <StackPanel>
-                <TextBlock
-                    Margin="6"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    FontSize="{StaticResource FontSizeSmall}"
-                    Foreground="{StaticResource LightGrayColorBrush}"
-                    Text="Right" />
-                <ComboBox
-                    Name="RightButtonComboBox"
-                    HorizontalAlignment="Center"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    ItemsSource="{Binding KeyboardKeys}"
-                    SelectedItem="{Binding SelectedKeyRight}"
-                    Style="{StaticResource CircleComboBox}">
-                </ComboBox>
-            </StackPanel>
-        </Button>
-        <Grid
-            Grid.Row="5"
-            Grid.Column="4"
-            Grid.ColumnSpan="3">
+    <!--  This border is for a vignette effect  -->
+    <Border>
+        <Border.OpacityMask>
+            <RadialGradientBrush>
+                <GradientStop Offset="0.01" Color="#ffff">
+                </GradientStop>
+                <GradientStop Offset="3" Color="#0fff">
+                </GradientStop>
+            </RadialGradientBrush>
+        </Border.OpacityMask>
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.7*" />
+                <ColumnDefinition Width="0.7*" />
+                <ColumnDefinition Width="0.7*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="0.1*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0*" />
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <!--  The Select button  -->
+            <!--  The UP button  -->
             <Button
-                Grid.Column="1"
+                Grid.Row="2"
+                Grid.Column="2"
                 FocusVisualStyle="{StaticResource TransparentStyle}"
                 FontSize="{StaticResource FontSizeBig}"
                 Foreground="{StaticResource WhiteColorBrush}"
-                Style="{StaticResource DarkEllipseButton}">
+                Style="{StaticResource DarkSquareButton}">
 
                 <StackPanel>
                     <TextBlock
@@ -179,25 +63,26 @@
                         FocusVisualStyle="{StaticResource TransparentStyle}"
                         FontSize="{StaticResource FontSizeSmall}"
                         Foreground="{StaticResource LightGrayColorBrush}"
-                        Text="Select" />
+                        Text="Up" />
                     <ComboBox
-                        Name="SelectButtonComboBox"
+                        Name="UpButtonComboBox"
                         HorizontalAlignment="Center"
                         FocusVisualStyle="{StaticResource TransparentStyle}"
                         ItemsSource="{Binding KeyboardKeys}"
-                        SelectedItem="{Binding SelectedKeySelect}"
+                        SelectedItem="{Binding SelectedKeyUp}"
                         Style="{StaticResource CircleComboBox}">
                     </ComboBox>
                 </StackPanel>
             </Button>
 
-            <!--  The Start button  -->
+            <!--  The Down button  -->
             <Button
-                Grid.Column="3"
+                Grid.Row="4"
+                Grid.Column="2"
                 FocusVisualStyle="{StaticResource TransparentStyle}"
                 FontSize="{StaticResource FontSizeBig}"
                 Foreground="{StaticResource WhiteColorBrush}"
-                Style="{StaticResource DarkEllipseButton}">
+                Style="{StaticResource DarkSquareButton}">
 
                 <StackPanel>
                     <TextBlock
@@ -207,75 +92,201 @@
                         FocusVisualStyle="{StaticResource TransparentStyle}"
                         FontSize="{StaticResource FontSizeSmall}"
                         Foreground="{StaticResource LightGrayColorBrush}"
-                        Text="Start" />
+                        Text="Down" />
                     <ComboBox
-                        Name="StartButtonComboBox"
+                        Name="DownButtonComboBox"
                         HorizontalAlignment="Center"
                         FocusVisualStyle="{StaticResource TransparentStyle}"
                         ItemsSource="{Binding KeyboardKeys}"
-                        SelectedItem="{Binding SelectedKeyStart}"
+                        SelectedItem="{Binding SelectedKeyDown}"
+                        Style="{StaticResource CircleComboBox}">
+                    </ComboBox>
+                </StackPanel>
+            </Button>
+
+            <!--  The Left button  -->
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
+                FontSize="{StaticResource FontSizeBig}"
+                Foreground="{StaticResource WhiteColorBrush}"
+                Style="{StaticResource DarkSquareButton}">
+
+                <StackPanel>
+                    <TextBlock
+                        Margin="6"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FocusVisualStyle="{StaticResource TransparentStyle}"
+                        FontSize="{StaticResource FontSizeSmall}"
+                        Foreground="{StaticResource LightGrayColorBrush}"
+                        Text="Left" />
+                    <ComboBox
+                        Name="LeftButtonComboBox"
+                        HorizontalAlignment="Center"
+                        FocusVisualStyle="{StaticResource TransparentStyle}"
+                        ItemsSource="{Binding KeyboardKeys}"
+                        SelectedItem="{Binding SelectedKeyLeft}"
+                        Style="{StaticResource CircleComboBox}">
+                    </ComboBox>
+                </StackPanel>
+            </Button>
+
+            <!--  The Right button  -->
+            <Button
+                Grid.Row="3"
+                Grid.Column="3"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
+                FontSize="{StaticResource FontSizeBig}"
+                Foreground="{StaticResource WhiteColorBrush}"
+                Style="{StaticResource DarkSquareButton}">
+
+                <StackPanel>
+                    <TextBlock
+                        Margin="6"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FocusVisualStyle="{StaticResource TransparentStyle}"
+                        FontSize="{StaticResource FontSizeSmall}"
+                        Foreground="{StaticResource LightGrayColorBrush}"
+                        Text="Right" />
+                    <ComboBox
+                        Name="RightButtonComboBox"
+                        HorizontalAlignment="Center"
+                        FocusVisualStyle="{StaticResource TransparentStyle}"
+                        ItemsSource="{Binding KeyboardKeys}"
+                        SelectedItem="{Binding SelectedKeyRight}"
+                        Style="{StaticResource CircleComboBox}">
+                    </ComboBox>
+                </StackPanel>
+            </Button>
+            <Grid
+                Grid.Row="5"
+                Grid.Column="4"
+                Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="0.1*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="0.5*" />
+                </Grid.ColumnDefinitions>
+
+                <!--  The Select button  -->
+                <Button
+                    Grid.Column="1"
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    FontSize="{StaticResource FontSizeBig}"
+                    Foreground="{StaticResource WhiteColorBrush}"
+                    Style="{StaticResource DarkEllipseButton}">
+
+                    <StackPanel>
+                        <TextBlock
+                            Margin="6"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            FocusVisualStyle="{StaticResource TransparentStyle}"
+                            FontSize="{StaticResource FontSizeSmall}"
+                            Foreground="{StaticResource LightGrayColorBrush}"
+                            Text="Select" />
+                        <ComboBox
+                            Name="SelectButtonComboBox"
+                            HorizontalAlignment="Center"
+                            FocusVisualStyle="{StaticResource TransparentStyle}"
+                            ItemsSource="{Binding KeyboardKeys}"
+                            SelectedItem="{Binding SelectedKeySelect}"
+                            Style="{StaticResource CircleComboBox}">
+                        </ComboBox>
+                    </StackPanel>
+                </Button>
+
+                <!--  The Start button  -->
+                <Button
+                    Grid.Column="3"
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    FontSize="{StaticResource FontSizeBig}"
+                    Foreground="{StaticResource WhiteColorBrush}"
+                    Style="{StaticResource DarkEllipseButton}">
+
+                    <StackPanel>
+                        <TextBlock
+                            Margin="6"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            FocusVisualStyle="{StaticResource TransparentStyle}"
+                            FontSize="{StaticResource FontSizeSmall}"
+                            Foreground="{StaticResource LightGrayColorBrush}"
+                            Text="Start" />
+                        <ComboBox
+                            Name="StartButtonComboBox"
+                            HorizontalAlignment="Center"
+                            FocusVisualStyle="{StaticResource TransparentStyle}"
+                            ItemsSource="{Binding KeyboardKeys}"
+                            SelectedItem="{Binding SelectedKeyStart}"
+                            Style="{StaticResource CircleComboBox}">
+                        </ComboBox>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <!--  The B button  -->
+            <Button
+                Grid.Row="3"
+                Grid.Column="7"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
+                FontSize="{StaticResource FontSizeBig}"
+                Foreground="{StaticResource WhiteColorBrush}"
+                Style="{StaticResource RedCircleButton}">
+
+                <StackPanel>
+                    <TextBlock
+                        Margin="6"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FocusVisualStyle="{StaticResource TransparentStyle}"
+                        FontSize="{StaticResource FontSizeSmall}"
+                        Foreground="{StaticResource WhiteColorBrush}"
+                        Text="B" />
+                    <ComboBox
+                        Name="BButtonComboBox"
+                        HorizontalAlignment="Center"
+                        FocusVisualStyle="{StaticResource TransparentStyle}"
+                        ItemsSource="{Binding KeyboardKeys}"
+                        SelectedItem="{Binding SelectedKeyB}"
+                        Style="{StaticResource CircleComboBox}">
+                    </ComboBox>
+                </StackPanel>
+            </Button>
+
+            <!--  The A button  -->
+            <Button
+                Grid.Row="3"
+                Grid.Column="8"
+                FocusVisualStyle="{StaticResource TransparentStyle}"
+                FontSize="{StaticResource FontSizeBig}"
+                Foreground="{StaticResource WhiteColorBrush}"
+                Style="{StaticResource RedCircleButton}">
+
+                <StackPanel>
+                    <TextBlock
+                        Margin="6"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Top"
+                        FocusVisualStyle="{StaticResource TransparentStyle}"
+                        FontSize="{StaticResource FontSizeSmall}"
+                        Foreground="{StaticResource WhiteColorBrush}"
+                        Text="A" />
+                    <ComboBox
+                        Name="AButtonComboBox"
+                        HorizontalAlignment="Center"
+                        FocusVisualStyle="{StaticResource TransparentStyle}"
+                        ItemsSource="{Binding KeyboardKeys}"
+                        SelectedItem="{Binding SelectedKeyA}"
                         Style="{StaticResource CircleComboBox}">
                     </ComboBox>
                 </StackPanel>
             </Button>
         </Grid>
-
-        <!--  The B button  -->
-        <Button
-            Grid.Row="3"
-            Grid.Column="7"
-            FocusVisualStyle="{StaticResource TransparentStyle}"
-            FontSize="{StaticResource FontSizeBig}"
-            Foreground="{StaticResource WhiteColorBrush}"
-            Style="{StaticResource RedCircleButton}">
-
-            <StackPanel>
-                <TextBlock
-                    Margin="6"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    FontSize="{StaticResource FontSizeSmall}"
-                    Foreground="{StaticResource WhiteColorBrush}"
-                    Text="B" />
-                <ComboBox
-                    Name="BButtonComboBox"
-                    HorizontalAlignment="Center"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    ItemsSource="{Binding KeyboardKeys}"
-                    SelectedItem="{Binding SelectedKeyB}"
-                    Style="{StaticResource CircleComboBox}">
-                </ComboBox>
-            </StackPanel>
-        </Button>
-
-        <!--  The A button  -->
-        <Button
-            Grid.Row="3"
-            Grid.Column="8"
-            FocusVisualStyle="{StaticResource TransparentStyle}"
-            FontSize="{StaticResource FontSizeBig}"
-            Foreground="{StaticResource WhiteColorBrush}"
-            Style="{StaticResource RedCircleButton}">
-
-            <StackPanel>
-                <TextBlock
-                    Margin="6"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Top"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    FontSize="{StaticResource FontSizeSmall}"
-                    Foreground="{StaticResource WhiteColorBrush}"
-                    Text="A" />
-                <ComboBox
-                    Name="AButtonComboBox"
-                    HorizontalAlignment="Center"
-                    FocusVisualStyle="{StaticResource TransparentStyle}"
-                    ItemsSource="{Binding KeyboardKeys}"
-                    SelectedItem="{Binding SelectedKeyA}"
-                    Style="{StaticResource CircleComboBox}">
-                </ComboBox>
-            </StackPanel>
-        </Button>
-    </Grid>
+    </Border>
 </Page>

@@ -13,123 +13,134 @@
     KeyboardNavigation.TabNavigation="None"
     mc:Ignorable="d">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="0.5" />
-            <RowDefinition Height="0.5*" />
-            <RowDefinition Height="0.5*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+    <!--  This border is for a vignette effect  -->
+    <Border>
+        <Border.OpacityMask>
+            <RadialGradientBrush>
+                <GradientStop Offset="0.01" Color="#ffff">
+                </GradientStop>
+                <GradientStop Offset="5" Color="#0fff">
+                </GradientStop>
+            </RadialGradientBrush>
+        </Border.OpacityMask>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="0.5" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="0.5*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <!--  User friendly info message  -->
-        <Grid
-            Grid.Row="0"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            Margin="16"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Bottom">
-            <TextBlock
-                FocusVisualStyle="{StaticResource TransparentStyle}"
-                FontSize="{StaticResource FontSizeBig}"
-                Foreground="{Binding InfoTextForegroundColorRGB, Converter={cnvrt:StringRGBToBrushConverter}}"
-                Text="{Binding InfoText}"
-                Visibility="{Binding InfoTextVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
-            </TextBlock>
-            <Button
-                Command="{Binding ResetInfoTextCommand}"
-                FocusVisualStyle="{StaticResource TransparentStyle}"
-                Style="{StaticResource TransparentButton}">
-            </Button>
-        </Grid>
-
-        <!--  TextBox with placeholder  -->
-        <Grid
-            Grid.Row="2"
-            Grid.Column="1"
-            Grid.ColumnSpan="3">
-            <TextBox
-                x:Name="IPBox"
-                Margin="8"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                FocusVisualStyle="{StaticResource TransparentStyle}"
-                FontSize="{StaticResource FontSizeVeryLarge}"
-                IsEnabled="{Binding IsIPBoxEnabled}"
-                MaxLength="15"
-                Text="{Binding CurrentIP}" />
-            <TextBlock
+            <!--  User friendly info message  -->
+            <Grid
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                Margin="16"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FocusVisualStyle="{StaticResource TransparentStyle}"
-                FontSize="{StaticResource FontSizeLarge}"
-                Foreground="DarkGray"
-                IsHitTestVisible="False"
-                Text="{Binding IPBoxPlaceholderText}">
-                <TextBlock.Style>
-                    <Style TargetType="{x:Type TextBlock}">
-                        <Setter Property="Visibility" Value="Collapsed" />
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text, ElementName=IPBox}" Value="">
-                                <Setter Property="Visibility" Value="Visible" />
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </TextBlock.Style>
-            </TextBlock>
-            <Button
-                Margin="24"
-                Padding="8"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Command="{Binding ResetDefaultLoginSettingsCommand}"
-                Content="X"
-                FocusVisualStyle="{StaticResource TransparentStyle}"
-                Foreground="{StaticResource WhiteColorBrush}"
-                Style="{StaticResource RedCircleButton}"
-                ToolTip="Reset Default IP Address"
-                Visibility="{Binding DetectIPButtonVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
-            </Button>
-        </Grid>
+                VerticalAlignment="Bottom">
+                <TextBlock
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    FontSize="{StaticResource FontSizeBig}"
+                    Foreground="{Binding InfoTextForegroundColorRGB, Converter={cnvrt:StringRGBToBrushConverter}}"
+                    Text="{Binding InfoText}"
+                    Visibility="{Binding InfoTextVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
+                </TextBlock>
+                <Button
+                    Command="{Binding ResetInfoTextCommand}"
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    Style="{StaticResource TransparentButton}">
+                </Button>
+            </Grid>
 
-        <StackPanel
-            Grid.Row="3"
-            Grid.Column="1"
-            Grid.ColumnSpan="3"
-            Margin="8"
-            HorizontalAlignment="Center"
-            Orientation="Horizontal">
-            <!--  Start/Stop button  -->
-            <Button
+            <!--  TextBox with placeholder  -->
+            <Grid
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="3">
+                <TextBox
+                    x:Name="IPBox"
+                    Margin="8"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    FontSize="{StaticResource FontSizeVeryLarge}"
+                    IsEnabled="{Binding IsIPBoxEnabled}"
+                    MaxLength="15"
+                    Text="{Binding CurrentIP}" />
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    FontSize="{StaticResource FontSizeLarge}"
+                    Foreground="DarkGray"
+                    IsHitTestVisible="False"
+                    Text="{Binding IPBoxPlaceholderText}">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=IPBox}" Value="">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+                <Button
+                    Margin="24"
+                    Padding="8"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Command="{Binding ResetDefaultLoginSettingsCommand}"
+                    Content="X"
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    Foreground="{StaticResource WhiteColorBrush}"
+                    Style="{StaticResource RedCircleButton}"
+                    ToolTip="Reset Default IP Address"
+                    Visibility="{Binding DetectIPButtonVisibility, Converter={cnvrt:IntToVisibilityConverter}}">
+                </Button>
+            </Grid>
+
+            <StackPanel
+                Grid.Row="3"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
                 Margin="8"
-                Padding="8"
-                Command="{Binding StartServerClickedCommand}"
-                Content="{Binding StartServerButtonText}"
-                FocusVisualStyle="{StaticResource TransparentStyle}"
-                FontSize="{StaticResource FontSizeBig}"
-                Foreground="{StaticResource WhiteColorBrush}"
-                IsEnabled="{Binding IsServerNotStarting}" />
-            <!--  Auto detect ip button  -->
-            <Button
-                Margin="8"
-                Padding="8"
-                Command="{Binding DetectIPClickedCommand}"
-                Content="{Binding DetectIPButtonText}"
-                FocusVisualStyle="{StaticResource TransparentStyle}"
-                FontSize="{StaticResource FontSizeBig}"
-                Foreground="{StaticResource WhiteColorBrush}"
-                IsEnabled="{Binding IsServerNotStarting}"
-                Visibility="{Binding DetectIPButtonVisibility, Converter={cnvrt:IntToVisibilityConverter}}" />
-        </StackPanel>
-    </Grid>
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <!--  Start/Stop button  -->
+                <Button
+                    Margin="8"
+                    Padding="8"
+                    Command="{Binding StartServerClickedCommand}"
+                    Content="{Binding StartServerButtonText}"
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    FontSize="{StaticResource FontSizeBig}"
+                    Foreground="{StaticResource WhiteColorBrush}"
+                    IsEnabled="{Binding IsServerNotStarting}" />
+                <!--  Auto detect ip button  -->
+                <Button
+                    Margin="8"
+                    Padding="8"
+                    Command="{Binding DetectIPClickedCommand}"
+                    Content="{Binding DetectIPButtonText}"
+                    FocusVisualStyle="{StaticResource TransparentStyle}"
+                    FontSize="{StaticResource FontSizeBig}"
+                    Foreground="{StaticResource WhiteColorBrush}"
+                    IsEnabled="{Binding IsServerNotStarting}"
+                    Visibility="{Binding DetectIPButtonVisibility, Converter={cnvrt:IntToVisibilityConverter}}" />
+            </StackPanel>
+        </Grid>
+    </Border>
 </Page>
