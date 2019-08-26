@@ -1,18 +1,15 @@
 ﻿
-using RCMobileUI.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace RCMobileUI.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class NonePageView : ContentView
     {
-        public MainPage()
+        public NonePageView()
         {
             InitializeComponent();
-
-            this.BindingContext = new MainPageViewModel();
         }
     }
 }

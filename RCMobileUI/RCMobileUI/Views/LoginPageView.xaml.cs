@@ -6,13 +6,13 @@ using Xamarin.Forms.Xaml;
 namespace RCMobileUI.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class LoginPageView : ContentView
     {
-        public MainPage()
+        public LoginPageView()
         {
             InitializeComponent();
 
-            this.BindingContext = new MainPageViewModel();
+            this.BindingContext = new LoginPageViewModel();
         }
     }
 }

@@ -3,12 +3,18 @@
     x:Class="RCMobileUI.Views.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cnvrt="clr-namespace:RCMobileUI.ValueConverters"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Hello World" />
-        </StackLayout>
+        <Grid>
+            <Frame
+                Margin="0"
+                Padding="0"
+                Content="{Binding CurrentPage, Converter={cnvrt:ApplicationPageConverter}}"
+                VerticalOptions="FillAndExpand">
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
