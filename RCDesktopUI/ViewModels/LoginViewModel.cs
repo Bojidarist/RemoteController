@@ -221,6 +221,7 @@ namespace RCDesktopUI.ViewModels
                 this.StartServerButtonText = "Stop Server";
                 this.IsServerNotStarting = true;
                 this.DetectIPButtonVisibility = 0;
+                this.InfoMessage("Waiting For Connection", true, "0288d1");
             }
             else
             {
