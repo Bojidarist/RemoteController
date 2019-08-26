@@ -20,6 +20,6 @@
         /// <summary>
         /// The page with NES controls
         /// </summary>
-        NESControllerPage = 3
+        NESControllerView = 3
     }
 }

@@ -20,6 +20,10 @@ namespace RCMobileUI.ValueConverters
                     return new NonePageView();
                 case ApplicationPage.Login:
                     return new LoginPageView();
+                case ApplicationPage.ControllerSelect:
+                    return new ControllerSelectView();
+                case ApplicationPage.NESControllerView:
+                    return new NESControllerView();
                 default:
                     // If a unknown page is requested stop the app and signal a breakpoint for debugging
                     Debugger.Break();
