@@ -30,4 +30,13 @@
   <ItemGroup>
     <ProjectReference Include="..\..\RCLib\RCLib.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\NESControllerView.xaml.cs">
+      <DependentUpon>NESControllerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ControllerSelectView.xaml.cs">
+      <DependentUpon>ControllerSelectView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>
