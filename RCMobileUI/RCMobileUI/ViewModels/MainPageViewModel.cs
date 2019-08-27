@@ -10,7 +10,7 @@ namespace RCMobileUI.ViewModels
     {
         #region Private members
 
-        private ApplicationPage mCurrentPage = ApplicationPage.Login;
+        private ApplicationPage mCurrentPage = ApplicationPage.ControllerSelect;
 
         #endregion
 
@@ -41,7 +41,6 @@ namespace RCMobileUI.ViewModels
         /// </summary>
         public MainPageViewModel()
         {
-            this.CurrentPage = ApplicationPage.Login;
         }
 
         #endregion

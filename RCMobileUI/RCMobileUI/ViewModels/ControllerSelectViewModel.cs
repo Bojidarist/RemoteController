@@ -1,4 +1,5 @@
-﻿using RCMobileUI.Views;
+﻿using RCMobileUI.Models.DataModels;
+using RCMobileUI.Views;
 
 namespace RCMobileUI.ViewModels
 {
@@ -7,6 +8,32 @@ namespace RCMobileUI.ViewModels
     /// </summary>
     public class ControllerSelectViewModel : BaseViewModel
     {
+        #region Private members
+
+        private ApplicationPage mCurrentController = ApplicationPage.NESControllerView;
+
+        #endregion
+
+        #region Public properties
+
+        /// <summary>
+        /// The current selected controller
+        /// </summary>
+        public ApplicationPage CurrentController
+        {
+            get
+            {
+                return this.mCurrentController;
+            }
+            set
+            {
+                this.mCurrentController = value;
+                this.OnPropertyChanged(nameof(CurrentController));
+            }
+        }
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
