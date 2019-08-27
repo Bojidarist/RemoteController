@@ -7,8 +7,108 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ContentView.Content>
-        <StackLayout>
-            <Label Text="NES" />
-        </StackLayout>
+        <Grid BackgroundColor="#353535">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.15*" />
+                <ColumnDefinition Width="0.7*" />
+                <ColumnDefinition Width="0.7*" />
+                <ColumnDefinition Width="0.7*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--  The Up button  -->
+            <Button
+                Grid.Row="1"
+                Grid.Column="2"
+                BackgroundColor="Black"
+                FontSize="12"
+                Text="Up"
+                TextColor="White">
+            </Button>
+            <!--  The Left button  -->
+            <Button
+                Grid.Row="2"
+                Grid.Column="1"
+                BackgroundColor="Black"
+                FontSize="12"
+                Text="Left"
+                TextColor="White">
+            </Button>
+            <!--  The Down button  -->
+            <Button
+                Grid.Row="3"
+                Grid.Column="2"
+                BackgroundColor="Black"
+                FontSize="12"
+                Text="Down"
+                TextColor="White">
+            </Button>
+            <!--  The Right button  -->
+            <Button
+                Grid.Row="2"
+                Grid.Column="3"
+                BackgroundColor="Black"
+                FontSize="12"
+                Text="Right"
+                TextColor="White">
+            </Button>
+            <!--  The Select and Start button  -->
+            <StackLayout
+                Grid.Row="4"
+                Grid.Column="4"
+                Grid.ColumnSpan="3"
+                Margin="0"
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                Spacing="35"
+                VerticalOptions="Center">
+                <Button
+                    BackgroundColor="Gray"
+                    CornerRadius="100"
+                    FontSize="12"
+                    Text="Select"
+                    TextColor="White">
+                </Button>
+                <Button
+                    BackgroundColor="Gray"
+                    CornerRadius="100"
+                    FontSize="12"
+                    Text="Start"
+                    TextColor="White">
+                </Button>
+            </StackLayout>
+            <!--  The B button  -->
+            <Button
+                Grid.Row="2"
+                Grid.Column="7"
+                BackgroundColor="Red"
+                CornerRadius="100"
+                FontSize="16"
+                Text="B"
+                TextColor="White">
+            </Button>
+            <!--  The A button  -->
+            <Button
+                Grid.Row="2"
+                Grid.Column="8"
+                BackgroundColor="Red"
+                CornerRadius="100"
+                FontSize="16"
+                Text="A"
+                TextColor="White">
+            </Button>
+        </Grid>
     </ContentView.Content>
 </ContentView>
