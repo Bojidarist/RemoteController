@@ -5,10 +5,53 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="{StaticResource MaterialPrimaryMain}"
     mc:Ignorable="d">
     <ContentView.Content>
-        <StackLayout>
-            <Label Text="Login" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Entry
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                BackgroundColor="{StaticResource WhiteColor}"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Placeholder="IP Address"
+                VerticalOptions="Center" />
+
+            <StackLayout
+                Grid.Row="3"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                HorizontalOptions="Center"
+                Orientation="Horizontal"
+                VerticalOptions="FillAndExpand">
+                <Button
+                    BackgroundColor="{StaticResource OrangeColor}"
+                    Text="Connect"
+                    TextColor="{StaticResource WhiteColor}"
+                    VerticalOptions="Center" />
+                <Button
+                    BackgroundColor="{StaticResource OrangeColor}"
+                    Text="Detect IP"
+                    TextColor="{StaticResource WhiteColor}"
+                    VerticalOptions="Center" />
+            </StackLayout>
+        </Grid>
     </ContentView.Content>
 </ContentView>
