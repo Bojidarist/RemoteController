@@ -1,20 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="RCMobileUI.App">
+<Application
+    x:Class="RCMobileUI.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
 
     <Application.Resources>
         <ResourceDictionary>
-            <!--Global Styles-->
+            <!--  Global Styles  -->
             <Color x:Key="NavigationPrimary">#2196F3</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
+
+            <!--  Material color scheme  -->
+            <!--  Primary  -->
+            <Color x:Key="MaterialPrimaryMain">#212121</Color>
+            <Color x:Key="MaterialPrimaryLight">#484848</Color>
+            <Color x:Key="MaterialPrimaryDark">#000000</Color>
+
+            <!--  Secondary  -->
+            <Color x:Key="MaterialSecondaryMain">#c62828</Color>
+            <Color x:Key="MaterialSecondaryLight">#ff5f52</Color>
+            <Color x:Key="MaterialSecondaryDark">#8e0000</Color>
+
+            <!--  Generic colors  -->
+            <!--  Black/White  -->
+            <Color x:Key="BlackColor">#000000</Color>
+            <Color x:Key="WhiteColor">#FFFFFF</Color>
+
+            <!--  Blue  -->
+            <Color x:Key="BlueColor">#0288d1</Color>
+            <Color x:Key="LightBlueColor">#5eb8ff</Color>
+            <Color x:Key="DarkBlueColor">#005b9f</Color>
+
+            <!--  Orange  -->
+            <Color x:Key="OrangeColor">#fb8c00</Color>
+            <Color x:Key="LightOrangeColor">#ffbd45</Color>
+            <Color x:Key="DarkOrangeColor">#c25e00</Color>
+
+            <!--  Pink  -->
+            <Color x:Key="PinkColor">#ff1744</Color>
+            <Color x:Key="LightPinkColor">#ff616f</Color>
+            <Color x:Key="DarkPinkColor">#c4001d</Color>
+
+            <!--  Gray  -->
+            <Color x:Key="GrayColor">#424242</Color>
+            <Color x:Key="LightGrayColor">#6d6d6d</Color>
+            <Color x:Key="DarkGrayColor">#1b1b1b</Color>
         </ResourceDictionary>
     </Application.Resources>
-    
+
 </Application>
