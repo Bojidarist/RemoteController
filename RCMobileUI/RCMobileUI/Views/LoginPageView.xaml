@@ -3,6 +3,7 @@
     x:Class="RCMobileUI.Views.LoginPageView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cnvrt="clr-namespace:RCMobileUI.ValueConverters"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     BackgroundColor="{StaticResource MaterialPrimaryMain}"
@@ -32,6 +33,7 @@
                 BackgroundColor="{StaticResource WhiteColor}"
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
+                IsEnabled="{Binding IsBusy, Converter={cnvrt:IsBusyToIsEnabledConverter}}"
                 Placeholder="IP Address"
                 Text="{Binding IPBoxText}"
                 VerticalOptions="Center" />
@@ -47,12 +49,14 @@
                 <Button
                     BackgroundColor="{StaticResource OrangeColor}"
                     Command="{Binding ConnectButtonClicked}"
+                    IsEnabled="{Binding IsBusy, Converter={cnvrt:IsBusyToIsEnabledConverter}}"
                     Text="Connect"
                     TextColor="{StaticResource WhiteColor}"
                     VerticalOptions="Center" />
                 <Button
                     BackgroundColor="{StaticResource OrangeColor}"
                     Command="{Binding DetectIPButtonClicked}"
+                    IsEnabled="{Binding IsBusy, Converter={cnvrt:IsBusyToIsEnabledConverter}}"
                     Text="Detect IP"
                     TextColor="{StaticResource WhiteColor}"
                     VerticalOptions="Center" />

@@ -1,6 +1,7 @@
 ﻿using RCMobileUI.Helpers;
 using RCMobileUI.Views;
 using System;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace RCMobileUI.ViewModels
@@ -69,9 +70,14 @@ namespace RCMobileUI.ViewModels
         /// </summary>
         private void MakeCommands()
         {
-            this.DetectIPButtonClicked = new Command(() =>
+            this.DetectIPButtonClicked = new Command(async () =>
             {
-                this.IPBoxText = Client.SingletonRCClient.SingleRCClient.GetActiveServerIP();
+                await Task.Run(() =>
+                {
+                    this.IsBusy = true;
+                    this.IPBoxText = Client.SingletonRCClient.SingleRCClient.GetActiveServerIP();
+                    this.IsBusy = false;
+                });
             });
 
             this.ConnectButtonClicked = new Command(() =>
