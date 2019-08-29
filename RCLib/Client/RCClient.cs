@@ -127,7 +127,7 @@ namespace RCLib.Client
         /// Parse the button to CSV and send it to the server
         /// </summary>
         /// <param name="button">The button to be sent</param>
-        /// <param name="seperator">The character that will seperate different requests</param>
+        /// <param name="seperator">The character that will separate different requests</param>
         /// <param name="isWriteLine">If <see cref="Write(string)"/> or <see cref="WriteLine(string)"/> will be used</param>
         public void SendConsoleButtonAsCSV(IConsoleButton button, char seperator = ' ', bool isWriteLine = true)
         {
@@ -194,7 +194,7 @@ namespace RCLib.Client
         /// <param name="e">The message</param>
         private void TcpClient_DataReceived(object sender, Message e)
         {
-            // Split all inputs (useful if there are alot of inputs at the same time)
+            // Split all inputs (useful if there are a lot of inputs at the same time)
             string[] inputs = e.MessageString.ReturnCleanASCII().Split(new char[] { ' ' }, 100, StringSplitOptions.RemoveEmptyEntries);
             foreach (string input in inputs)
             {

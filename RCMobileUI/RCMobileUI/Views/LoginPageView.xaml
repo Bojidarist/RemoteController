@@ -33,6 +33,7 @@
                 HorizontalOptions="FillAndExpand"
                 HorizontalTextAlignment="Center"
                 Placeholder="IP Address"
+                Text="{Binding IPBoxText}"
                 VerticalOptions="Center" />
 
             <!--  Connect/Detect buttons  -->
@@ -45,11 +46,13 @@
                 VerticalOptions="FillAndExpand">
                 <Button
                     BackgroundColor="{StaticResource OrangeColor}"
+                    Command="{Binding ConnectButtonClicked}"
                     Text="Connect"
                     TextColor="{StaticResource WhiteColor}"
                     VerticalOptions="Center" />
                 <Button
                     BackgroundColor="{StaticResource OrangeColor}"
+                    Command="{Binding DetectIPButtonClicked}"
                     Text="Detect IP"
                     TextColor="{StaticResource WhiteColor}"
                     VerticalOptions="Center" />
