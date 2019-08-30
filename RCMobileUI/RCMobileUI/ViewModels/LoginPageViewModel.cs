@@ -82,23 +82,31 @@ namespace RCMobileUI.ViewModels
                 });
             });
 
-            this.ConnectButtonClicked = new Command(() =>
+            this.ConnectButtonClicked = new Command(async () =>
             {
-                if (!String.IsNullOrWhiteSpace(this.IPBoxText))
+                await Task.Run(() =>
                 {
-                    try
+                    if (!String.IsNullOrWhiteSpace(this.IPBoxText))
                     {
-                        if (RCClientHelpers.PingServer(this.IPBoxText, RCClientHelpers.ServerPort, 200))
+                        this.IsBusy = true;
+                        try
                         {
-                            Client.SingletonRCClient.SingleRCClient.Connect(this.IPBoxText, RCClientHelpers.ServerPort);
-                            RCClientHelpers.LatestIPAddress = this.IPBoxText;
+                            if (RCClientHelpers.PingServer(this.IPBoxText, RCClientHelpers.ServerPort, 200))
+                            {
+                                Client.SingletonRCClient.SingleRCClient.Connect(this.IPBoxText, RCClientHelpers.ServerPort);
+                                RCClientHelpers.LatestIPAddress = this.IPBoxText;
+                            }
+                        }
+                        catch (SocketException)
+                        {
+                            // Display info message
+                        }
+                        finally
+                        {
+                            this.IsBusy = false;
                         }
                     }
-                    catch (SocketException)
-                    {
-                        // Display info message
-                    }
-                }
+                });
             });
         }
 
