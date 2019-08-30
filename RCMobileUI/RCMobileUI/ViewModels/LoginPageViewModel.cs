@@ -1,6 +1,7 @@
 ﻿using RCMobileUI.Helpers;
 using RCMobileUI.Views;
 using System;
+using System.Net.Sockets;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -85,8 +86,18 @@ namespace RCMobileUI.ViewModels
             {
                 if (!String.IsNullOrWhiteSpace(this.IPBoxText))
                 {
-                    Client.SingletonRCClient.SingleRCClient.Connect(this.IPBoxText, RCClientHelpers.ServerPort);
-                    RCClientHelpers.LatestIPAddress = this.IPBoxText;
+                    try
+                    {
+                        if (RCClientHelpers.PingServer(this.IPBoxText, RCClientHelpers.ServerPort, 200))
+                        {
+                            Client.SingletonRCClient.SingleRCClient.Connect(this.IPBoxText, RCClientHelpers.ServerPort);
+                            RCClientHelpers.LatestIPAddress = this.IPBoxText;
+                        }
+                    }
+                    catch (SocketException)
+                    {
+                        // Display info message
+                    }
                 }
             });
         }
