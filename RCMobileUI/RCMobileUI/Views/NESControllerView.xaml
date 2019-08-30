@@ -3,6 +3,7 @@
     x:Class="RCMobileUI.Views.NESControllerView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:bhvr="clr-namespace:RCMobileUI.ControlBehaviors"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     BackgroundColor="{StaticResource MaterialPrimaryMain}"
@@ -37,6 +38,10 @@
                 FontSize="12"
                 Text="Up"
                 TextColor="{StaticResource WhiteColor}">
+                <Button.Behaviors>
+                    <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding UpButtonPressed}" />
+                    <bhvr:ButtonPressedReleasedBehavior ReleasedCommand="{Binding UpButtonReleased}" />
+                </Button.Behaviors>
             </Button>
             <!--  The Left button  -->
             <Button
@@ -46,6 +51,10 @@
                 FontSize="12"
                 Text="Left"
                 TextColor="{StaticResource WhiteColor}">
+                <Button.Behaviors>
+                    <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding LeftButtonPressed}" />
+                    <bhvr:ButtonPressedReleasedBehavior ReleasedCommand="{Binding LeftButtonReleased}" />
+                </Button.Behaviors>
             </Button>
             <!--  The Down button  -->
             <Button
@@ -55,6 +64,10 @@
                 FontSize="12"
                 Text="Down"
                 TextColor="{StaticResource WhiteColor}">
+                <Button.Behaviors>
+                    <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding DownButtonPressed}" />
+                    <bhvr:ButtonPressedReleasedBehavior ReleasedCommand="{Binding DownButtonReleased}" />
+                </Button.Behaviors>
             </Button>
             <!--  The Right button  -->
             <Button
@@ -64,6 +77,10 @@
                 FontSize="12"
                 Text="Right"
                 TextColor="{StaticResource WhiteColor}">
+                <Button.Behaviors>
+                    <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding RightButtonPressed}" />
+                    <bhvr:ButtonPressedReleasedBehavior ReleasedCommand="{Binding RightButtonReleased}" />
+                </Button.Behaviors>
             </Button>
             <!--  The Select and Start button  -->
             <StackLayout
@@ -81,6 +98,10 @@
                     FontSize="12"
                     Text="Select"
                     TextColor="{StaticResource WhiteColor}">
+                    <Button.Behaviors>
+                        <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding SelectButtonPressed}" />
+                        <bhvr:ButtonPressedReleasedBehavior ReleasedCommand="{Binding SelectButtonReleased}" />
+                    </Button.Behaviors>
                 </Button>
                 <Button
                     BackgroundColor="{StaticResource MaterialPrimaryLight}"
@@ -88,6 +109,10 @@
                     FontSize="12"
                     Text="Start"
                     TextColor="{StaticResource WhiteColor}">
+                    <Button.Behaviors>
+                        <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding StartButtonPressed}" />
+                        <bhvr:ButtonPressedReleasedBehavior ReleasedCommand="{Binding StartButtonReleased}" />
+                    </Button.Behaviors>
                 </Button>
             </StackLayout>
             <!--  The B button  -->
@@ -99,6 +124,10 @@
                 FontSize="16"
                 Text="B"
                 TextColor="{StaticResource WhiteColor}">
+                <Button.Behaviors>
+                    <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding BButtonPressed}" />
+                    <bhvr:ButtonPressedReleasedBehavior ReleasedCommand="{Binding BButtonReleased}" />
+                </Button.Behaviors>
             </Button>
             <!--  The A button  -->
             <Button
@@ -109,6 +138,10 @@
                 FontSize="16"
                 Text="A"
                 TextColor="{StaticResource WhiteColor}">
+                <Button.Behaviors>
+                    <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding AButtonPressed}" />
+                    <bhvr:ButtonPressedReleasedBehavior ReleasedCommand="{Binding AButtonReleased}" />
+                </Button.Behaviors>
             </Button>
         </Grid>
     </ContentView.Content>
