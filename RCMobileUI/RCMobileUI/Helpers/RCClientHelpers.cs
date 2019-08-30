@@ -11,6 +11,16 @@ namespace RCMobileUI.Helpers
     /// </summary>
     public static class RCClientHelpers
     {
+        /// <summary>
+        /// The latest working IP Address
+        /// </summary>
+        public static string LatestIPAddress { get; set; }
+
+        /// <summary>
+        /// The port used by the server
+        /// </summary>
+        public static int ServerPort { get; set; } = 8910;
+
 #pragma warning disable IDE0060 // Remove unused parameter
         /// <summary>
         /// Pings to see if a RemoteController server is active and if it is, return the IP
@@ -35,7 +45,7 @@ namespace RCMobileUI.Helpers
                     localIP = $"{ localIPWithoutID }.{ i }";
                     using (var tcpClient = new TcpClient())
                     {
-                        if (!tcpClient.ConnectAsync(localIP, 8910).Wait(100))
+                        if (!tcpClient.ConnectAsync(localIP, ServerPort).Wait(100))
                         {
                             throw new Exception();
                         }
@@ -56,6 +66,30 @@ namespace RCMobileUI.Helpers
             }
 
             return localIP;
+        }
+
+        /// <summary>
+        /// Ping a server to check if it is alive
+        /// </summary>
+        /// <param name="ip">The IP address of the server</param>
+        /// <param name="port">Port of the server</param>
+        /// <param name="waitTime">The time waited in milliseconds</param>
+        public static bool PingServer(string ip, int port, int waitTime)
+        {
+            if (String.IsNullOrWhiteSpace(ip))
+            {
+                return false;
+            }
+
+            using (var tcpClient = new TcpClient())
+            {
+                if (!tcpClient.ConnectAsync(ip, port).Wait(waitTime))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

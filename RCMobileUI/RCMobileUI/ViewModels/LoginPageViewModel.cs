@@ -58,6 +58,7 @@ namespace RCMobileUI.ViewModels
         /// </summary>
         public LoginPageViewModel()
         {
+            this.InitialChecks();
             this.MakeCommands();
         }
 
@@ -84,9 +85,15 @@ namespace RCMobileUI.ViewModels
             {
                 if (!String.IsNullOrWhiteSpace(this.IPBoxText))
                 {
-                    Client.SingletonRCClient.SingleRCClient.Connect(this.IPBoxText, 8910);
+                    Client.SingletonRCClient.SingleRCClient.Connect(this.IPBoxText, RCClientHelpers.ServerPort);
+                    RCClientHelpers.LatestIPAddress = this.IPBoxText;
                 }
             });
+        }
+
+        private void InitialChecks()
+        {
+            this.IPBoxText = RCClientHelpers.LatestIPAddress;
         }
 
         #endregion
