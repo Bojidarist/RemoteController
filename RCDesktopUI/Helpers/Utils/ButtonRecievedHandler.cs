@@ -1,5 +1,6 @@
 ﻿using RCDesktopUI.Server;
 using RCLib.Models;
+using System.Threading.Tasks;
 
 namespace RCDesktopUI.Helpers
 {
@@ -40,16 +41,19 @@ namespace RCDesktopUI.Helpers
         /// <param name="e">The button that is sent</param>
         private void SingleServerManager_ServerDataReceived(object sender, ConsoleButtonEventArgs e)
         {
-            switch (e.ConsoleButton.ConsoleName)
+            Task.Run(() =>
             {
-                case ConsoleNameEnum.NONE:
-                    break;
-                case ConsoleNameEnum.NES:
-                    NESHelpers.NESKeyEvent(e.ConsoleButton.KeyName, e.ConsoleButton.KeyState);
-                    break;
-                default:
-                    break;
-            }
+                switch (e.ConsoleButton.ConsoleName)
+                {
+                    case ConsoleNameEnum.NONE:
+                        break;
+                    case ConsoleNameEnum.NES:
+                        NESHelpers.NESKeyEvent(e.ConsoleButton.KeyName, e.ConsoleButton.KeyState);
+                        break;
+                    default:
+                        break;
+                }
+            });
         }
     }
 }

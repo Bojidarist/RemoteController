@@ -1,11 +1,12 @@
-﻿using System;
+﻿using RCLib.Helpers;
+using RCLib.Models;
+using System;
 using System.Linq;
 using System.Net;
 using System.Net.NetworkInformation;
-using RCLib.Helpers;
-using RCLib.Models;
-using System.Text;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace RCLib.Server
 {
@@ -194,16 +195,19 @@ namespace RCLib.Server
         /// <param name="e">The received message</param>
         private void SingleTCPServer_DataReceived(object sender, SimpleTCPStandar.Message e)
         {
-            // Split all inputs (useful if there are alot of inputs at the same time)
-            string[] inputs = e.MessageString.ReturnCleanASCII().Split(new char[] { ' ' }, 100, StringSplitOptions.RemoveEmptyEntries);
-            foreach (string input in inputs)
+            Task.Run(() =>
             {
-                if (!string.IsNullOrWhiteSpace(input))
+                // Split all inputs (useful if there are a lot of inputs at the same time)
+                string[] inputs = e.MessageString.ReturnCleanASCII().Split(new char[] { ' ' }, 100, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string input in inputs)
                 {
-                    IConsoleButton data = this.ParseConsoleButtonFromCSV(input.ReturnCleanASCII());
-                    this.ServerDataReceived?.Invoke(this, new ConsoleButtonEventArgs(data));
+                    if (!string.IsNullOrWhiteSpace(input))
+                    {
+                        IConsoleButton data = this.ParseConsoleButtonFromCSV(input.ReturnCleanASCII());
+                        this.ServerDataReceived?.Invoke(this, new ConsoleButtonEventArgs(data));
+                    }
                 }
-            }
+            });
         }
 
         /// <summary>
