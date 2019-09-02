@@ -47,7 +47,7 @@ namespace RCMobileUI.ViewModels
         /// </summary>
         public MainPageViewModel()
         {
-            this.StartConnectionListener();
+            this.StartConnectionListener(500, 420);
         }
 
         #endregion
