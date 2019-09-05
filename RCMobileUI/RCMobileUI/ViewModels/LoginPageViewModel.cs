@@ -15,6 +15,7 @@ namespace RCMobileUI.ViewModels
         #region Private members
 
         private string mIPBoxText = "";
+        private string mInfoMessage = "";
 
         #endregion
 
@@ -36,6 +37,23 @@ namespace RCMobileUI.ViewModels
             }
         }
 
+        /// <summary>
+        /// The message notifying the user when something happens
+        /// </summary>
+        public string InfoMessage
+        {
+            get
+            {
+                return this.mInfoMessage;
+            }
+            set
+            {
+                this.mInfoMessage = value;
+                this.OnPropertyChanged(nameof(InfoMessage));
+            }
+        }
+
+
         #endregion
 
         #region Commands
@@ -49,6 +67,11 @@ namespace RCMobileUI.ViewModels
         /// Fires when the Connect button is clicked
         /// </summary>
         public Command ConnectButtonClicked { get; set; }
+
+        /// <summary>
+        /// Fires when the user wants to clear the InfoMessage by clicking on it
+        /// </summary>
+        public Command ClearInfoMessageClicked { get; set; }
 
         #endregion
 
@@ -99,13 +122,22 @@ namespace RCMobileUI.ViewModels
                         }
                         catch (SocketException)
                         {
-                            // Display info message
+                            this.InfoMessage = "Connection failed!";
+                            this.IsBusy = false;
                         }
                         finally
                         {
                             this.IsBusy = false;
                         }
                     }
+                });
+            });
+
+            this.ClearInfoMessageClicked = new Command(async () =>
+            {
+                await Task.Run(() =>
+                {
+                    this.InfoMessage = "";
                 });
             });
         }

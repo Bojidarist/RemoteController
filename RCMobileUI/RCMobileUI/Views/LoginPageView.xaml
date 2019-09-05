@@ -25,6 +25,31 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <!--  Info message  -->
+            <Grid
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+
+                <Label
+                    d:Text="Something happened!"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    Text="{Binding InfoMessage}"
+                    TextColor="{StaticResource BlueColor}"
+                    VerticalOptions="Center" />
+
+                <Button
+                    BackgroundColor="Transparent"
+                    BorderColor="Transparent"
+                    BorderWidth="0"
+                    Command="{Binding ClearInfoMessageClicked}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand" />
+            </Grid>
+
             <!--  The entry for IP  -->
             <Entry
                 Grid.Row="2"
