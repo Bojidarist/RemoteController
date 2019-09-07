@@ -64,6 +64,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Zen.Barcode.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <HintPath>..\packages\Zen.Barcode.Rendering.Framework.3.1.10729.1\lib\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -72,12 +75,15 @@
     </ApplicationDefinition>
     <Compile Include="Helpers\Keyboard\KeyboardHelpers.cs" />
     <Compile Include="Helpers\Keyboard\KeyboardKeysHelper.cs" />
+    <Compile Include="Helpers\Utils\BarcodeGenerator.cs" />
     <Compile Include="Helpers\Utils\ButtonRecievedHandler.cs" />
     <Compile Include="Helpers\Utils\MinimizeToTrayHelper.cs" />
     <Compile Include="Helpers\Console\NESHelpers.cs" />
+    <Compile Include="Helpers\Utils\QRCodeGenerator.cs" />
     <Compile Include="SelectedControllerKeys\SelectedNESKeys.cs" />
     <Compile Include="Server\SingletonServerManager.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="ValueConverters\ImageToImageSourceConverter.cs" />
     <Compile Include="ValueConverters\StringRGBToBrushConverter.cs" />
     <Compile Include="ValueConverters\IntToVisibilityConverter.cs" />
     <Compile Include="ValueConverters\StaticConverters\ConsoleKeyStateEnumToKeyboardEventFlagConverter.cs" />

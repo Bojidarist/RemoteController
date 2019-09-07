@@ -4,6 +4,7 @@ using RCDesktopUI.ViewModels.Base;
 using RCDesktopUI.Views;
 using RCLib.Server;
 using System;
+using System.Drawing;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -67,6 +68,16 @@ namespace RCDesktopUI.ViewModels
         /// </summary>
         public string InfoTextForegroundColorRGB { get; set; } = "ff1744";
 
+        /// <summary>
+        /// The QR code containing the IP of the server
+        /// </summary>
+        public Image LoginQR { get; set; }
+
+        /// <summary>
+        /// The visibility for LoginQR (0 = Collapsed, 1 = Hidden, 2 = Visible)
+        /// </summary>
+        public int LoginQRVisibility { get; set; } = 0;
+
         #endregion
 
         #region Commands
@@ -125,6 +136,10 @@ namespace RCDesktopUI.ViewModels
                         this.StartServerButtonText = "Start Server";
                         this.DetectIPButtonVisibility = 2;
                         this.InfoMessage("Waiting For Connection", false, "0288d1");
+
+                        // Collapse the QR code
+                        this.LoginQRVisibility = 0;
+
                         this.IsServerNotStarting = true;
                         this.IsIPBoxEnabled = true;
                     }
@@ -148,6 +163,11 @@ namespace RCDesktopUI.ViewModels
 
                                 // Remove the info message if there is one
                                 this.InfoMessage("Waiting For Connection", true, "0288d1");
+
+                                // Display the QR code 
+                                this.LoginQR = Helpers.Utils.QRCodeGenerator.Generate(this.CurrentIP, 50);
+                                this.LoginQRVisibility = 2;
+
                                 this.IsServerNotStarting = true;
                             }
                             catch (FormatException)
@@ -222,6 +242,10 @@ namespace RCDesktopUI.ViewModels
                 this.IsServerNotStarting = true;
                 this.DetectIPButtonVisibility = 0;
                 this.InfoMessage("Waiting For Connection", true, "0288d1");
+
+                // Display the QR code 
+                this.LoginQR = Helpers.Utils.QRCodeGenerator.Generate(this.CurrentIP, 50);
+                this.LoginQRVisibility = 2;
             }
             else
             {
@@ -229,6 +253,9 @@ namespace RCDesktopUI.ViewModels
                 this.StartServerButtonText = "Start Server";
                 this.IsServerNotStarting = true;
                 this.DetectIPButtonVisibility = 2;
+
+                // Collapse the QR code
+                this.LoginQRVisibility = 0;
             }
         }
 
