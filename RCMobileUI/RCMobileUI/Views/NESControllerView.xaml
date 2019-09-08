@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:bhvr="clr-namespace:RCMobileUI.ControlBehaviors"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:fa="clr-namespace:RCMobileUI.Utils"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     BackgroundColor="{StaticResource MaterialPrimaryMain}"
     mc:Ignorable="d">
@@ -35,8 +36,9 @@
                 Grid.Row="1"
                 Grid.Column="2"
                 BackgroundColor="{StaticResource MaterialPrimaryDark}"
+                FontFamily="{StaticResource FontAwesomeSolid}"
                 FontSize="12"
-                Text="Up"
+                Text="{x:Static fa:FontAwesomeIcons.ArrowUp}"
                 TextColor="{StaticResource WhiteColor}">
                 <Button.Behaviors>
                     <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding UpButtonPressed}" />
@@ -48,8 +50,9 @@
                 Grid.Row="2"
                 Grid.Column="1"
                 BackgroundColor="{StaticResource MaterialPrimaryDark}"
+                FontFamily="{StaticResource FontAwesomeSolid}"
                 FontSize="12"
-                Text="Left"
+                Text="{x:Static fa:FontAwesomeIcons.ArrowLeft}"
                 TextColor="{StaticResource WhiteColor}">
                 <Button.Behaviors>
                     <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding LeftButtonPressed}" />
@@ -61,8 +64,9 @@
                 Grid.Row="3"
                 Grid.Column="2"
                 BackgroundColor="{StaticResource MaterialPrimaryDark}"
+                FontFamily="{StaticResource FontAwesomeSolid}"
                 FontSize="12"
-                Text="Down"
+                Text="{x:Static fa:FontAwesomeIcons.ArrowDown}"
                 TextColor="{StaticResource WhiteColor}">
                 <Button.Behaviors>
                     <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding DownButtonPressed}" />
@@ -74,8 +78,9 @@
                 Grid.Row="2"
                 Grid.Column="3"
                 BackgroundColor="{StaticResource MaterialPrimaryDark}"
+                FontFamily="{StaticResource FontAwesomeSolid}"
                 FontSize="12"
-                Text="Right"
+                Text="{x:Static fa:FontAwesomeIcons.ArrowRight}"
                 TextColor="{StaticResource WhiteColor}">
                 <Button.Behaviors>
                     <bhvr:ButtonPressedReleasedBehavior PressedCommand="{Binding RightButtonPressed}" />

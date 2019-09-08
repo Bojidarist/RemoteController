@@ -7,7 +7,6 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>pdbonly</DebugType>
-    <AndroidEnableProfiledAot>true</AndroidEnableProfiledAot>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
