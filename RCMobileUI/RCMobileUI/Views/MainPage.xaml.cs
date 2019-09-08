@@ -12,6 +12,7 @@ namespace RCMobileUI.Views
         {
             InitializeComponent();
 
+            NavigationPage.SetHasNavigationBar(this, false);
             this.BindingContext = new MainPageViewModel();
         }
     }

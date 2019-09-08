@@ -7,6 +7,7 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     BackgroundColor="{StaticResource MaterialPrimaryMain}"
+    NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentView.Content>
         <Grid>
@@ -83,6 +84,13 @@
                     Command="{Binding DetectIPButtonClicked}"
                     IsEnabled="{Binding IsBusy, Converter={cnvrt:IsBusyToIsEnabledConverter}}"
                     Text="Detect IP"
+                    TextColor="{StaticResource WhiteColor}"
+                    VerticalOptions="Center" />
+                <Button
+                    BackgroundColor="{StaticResource OrangeColor}"
+                    Command="{Binding QRScanCommand}"
+                    IsEnabled="{Binding IsBusy, Converter={cnvrt:IsBusyToIsEnabledConverter}}"
+                    Text="QR Scan"
                     TextColor="{StaticResource WhiteColor}"
                     VerticalOptions="Center" />
             </StackLayout>

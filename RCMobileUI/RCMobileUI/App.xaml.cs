@@ -1,5 +1,5 @@
-﻿using Xamarin.Forms;
-using RCMobileUI.Views;
+﻿using RCMobileUI.Views;
+using Xamarin.Forms;
 
 namespace RCMobileUI
 {
@@ -9,7 +9,7 @@ namespace RCMobileUI
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()

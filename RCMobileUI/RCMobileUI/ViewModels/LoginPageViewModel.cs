@@ -73,6 +73,11 @@ namespace RCMobileUI.ViewModels
         /// </summary>
         public Command ClearInfoMessageClicked { get; set; }
 
+        /// <summary>
+        /// Fires when the user clicks the QRScan button
+        /// </summary>
+        public Command QRScanCommand { get; set; }
+
         #endregion
 
         #region Constructor
