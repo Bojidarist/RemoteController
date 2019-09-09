@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Views;
 
 namespace RCMobileUI.Droid
 {
@@ -15,6 +16,9 @@ namespace RCMobileUI.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+
+            // Hide status bar
+            this.Window.AddFlags(WindowManagerFlags.Fullscreen);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
