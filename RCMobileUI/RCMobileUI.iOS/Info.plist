@@ -21,8 +21,6 @@
 	</array>
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
-	<key>CFBundleDisplayName</key>
-	<string>RCMobileUI</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.companyname.RCMobileUI</string>
 	<key>CFBundleVersion</key>
@@ -41,5 +39,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>CFBundleDisplayName</key>
+	<string>RemoteController</string>
 </dict>
 </plist>
