@@ -37,6 +37,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icons\RCIcon256.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoSharp.1.0.0\lib\Net40\AutoSharp.dll</HintPath>
@@ -211,7 +214,34 @@
       <Name>RCLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Icons\RCIcon128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\RCIcon256.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\RCFull.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\100x100.png" />
+    <Resource Include="Resources\Images\1024x1024.png" />
+    <Resource Include="Resources\Images\120x120.png" />
+    <Resource Include="Resources\Images\144x144.png" />
+    <Resource Include="Resources\Images\152x152.png" />
+    <Resource Include="Resources\Images\167x167.png" />
+    <Resource Include="Resources\Images\180x180.png" />
+    <Resource Include="Resources\Images\20x20.png" />
+    <Resource Include="Resources\Images\29x29.png" />
+    <Resource Include="Resources\Images\40x40.png" />
+    <Resource Include="Resources\Images\50x50.png" />
+    <Resource Include="Resources\Images\58x58.png" />
+    <Resource Include="Resources\Images\60x60.png" />
+    <Resource Include="Resources\Images\72x72.png" />
+    <Resource Include="Resources\Images\76x76.png" />
+    <Resource Include="Resources\Images\80x80.png" />
+    <Resource Include="Resources\Images\87x87.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
